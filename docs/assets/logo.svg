@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4338ca"/>
+      <stop offset="1" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="feather" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#c7d2fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#bg)"/>
+  <!-- quill feather -->
+  <path d="M196 44c-58 6-102 44-118 104l-8 30 22-14c50-6 88-40 104-92 4-12 4-20 0-28z" fill="url(#feather)"/>
+  <path d="M190 54C150 84 116 120 84 172" stroke="#4338ca" stroke-width="5" stroke-linecap="round" fill="none" opacity=".55"/>
+  <!-- nib -->
+  <path d="M84 172l-26 40" stroke="#ffffff" stroke-width="9" stroke-linecap="round"/>
+  <!-- check badge -->
+  <circle cx="186" cy="186" r="42" fill="#22c55e" stroke="#1e1b4b" stroke-width="8"/>
+  <path d="M166 187l14 14 26-28" stroke="#ffffff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

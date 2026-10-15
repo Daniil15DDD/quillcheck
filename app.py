@@ -1,4 +1,4 @@
-"""Local AI-text checker UI. Run with ./run.sh; serves on 127.0.0.1 only."""
+"""QuillCheck UI. Run with ./run.sh; serves on 127.0.0.1 only."""
 import os
 
 os.environ["HF_HUB_OFFLINE"] = "1"  # detector.py enforces this too
@@ -13,6 +13,7 @@ from docx import Document
 
 import calibration
 import detector
+import likelihood
 import rewriter
 import worker
 
@@ -22,8 +23,8 @@ DISCLAIMER = (
     "Scores are not comparable with GPTZero or any other detector."
 )
 
-st.set_page_config(page_title="Local AI-text checker", page_icon="🔍", layout="wide")
-st.title("Local AI-text checker")
+st.set_page_config(page_title="QuillCheck", page_icon="🪶", layout="wide")
+st.title("🪶 QuillCheck")
 st.caption(DISCLAIMER)
 
 
@@ -175,31 +176,40 @@ with check:
         for warning in result.warnings:
             st.warning(warning)
 
-        left, right = st.columns(2)
-        with left:
-            st.metric("Binoculars raw score — EXPERIMENTAL (lower = more AI-like)", "—" if result.binoculars is None else f"{result.binoculars:.3f}")
-            st.caption("Qwen2.5-1.5B pair: no published or independently validated threshold exists for it, so this is shown as a raw number only.")
-            context = calibration.binoculars_context(result.binoculars) if result.binoculars is not None else None
-            if context is None:
-                st.info("Uncalibrated: this raw score means little on its own. Add at least 3 samples of your own writing in **Calibrate**.")
-            else:
-                getattr(st, context[0])(context[1])
-                st.caption("The comparison above uses your own samples only. It is not a validated threshold.")
-        with right:
-            st.metric("Classifier estimate (desklib)", "—" if result.classifier is None else f"{result.classifier * 100:.0f}%")
-            st.caption("Trained on news, books, abstracts, reviews, Reddit, recipes, Wikipedia and poetry, not coursework. 50% is the model card's cut-off; it is not a calibrated probability.")
+        reading = likelihood.reading(result.classifier)
+        if reading is None:
+            st.info("No estimate: the text was too short to score.")
+        else:
+            pct, label, severity = reading
+            st.metric("Likelihood this was AI-generated", f"{pct}%")
+            getattr(st, severity)(f"**{label}**")
+            st.progress(pct / 100)
+            st.caption(likelihood.CAVEAT)
             human_clf = calibration.scores("human", "classifier")
-            if result.classifier is not None and len(human_clf) >= 3:
-                st.caption(f"Your own writing samples scored {human_clf[0] * 100:.0f}%–{human_clf[-1] * 100:.0f}% on this classifier.")
+            if len(human_clf) >= 3:
+                st.caption(f"For comparison, your own writing samples scored {human_clf[0] * 100:.0f}%–{human_clf[-1] * 100:.0f}%.")
 
-        cov = result.coverage
-        if cov:
-            st.caption(
-                f"**What was scored:** Binoculars read all {cov.get('binoculars_tokens', 0)} tokens in {cov.get('binoculars_windows', 0)} window(s) of up to "
-                f"{detector.WINDOW_TOKENS} tokens (context does not carry across windows). The classifier read {cov.get('classifier_tokens', 0)} of "
-                f"{cov.get('classifier_total', 0)} tokens in {cov.get('classifier_windows', 0)} window(s) of up to {detector.CLASSIFIER_MAX_TOKENS} tokens "
-                "(only whitespace between paragraphs can be skipped). No text was truncated."
-            )
+        with st.expander("How this was worked out (technical details)"):
+            left, right = st.columns(2)
+            with left:
+                st.metric("Classifier score (desklib)", "—" if result.classifier is None else f"{result.classifier * 100:.0f}%")
+                st.caption("The number shown above. A model trained on news, books, abstracts, reviews, Reddit, recipes, Wikipedia and poetry, not coursework. 50% is the model card's cut-off.")
+            with right:
+                st.metric("Binoculars raw score — EXPERIMENTAL (lower = more AI-like)", "—" if result.binoculars is None else f"{result.binoculars:.3f}")
+                st.caption("A second, independent check. It has no validated threshold for these models, so it is not used for the headline and only means something next to your own samples.")
+                context = calibration.binoculars_context(result.binoculars) if result.binoculars is not None else None
+                if context is None:
+                    st.caption("Uncalibrated: add at least 3 samples of your own writing in **Calibrate** to compare against.")
+                else:
+                    getattr(st, context[0])(context[1])
+            cov = result.coverage
+            if cov:
+                st.caption(
+                    f"**What was scored:** Binoculars read all {cov.get('binoculars_tokens', 0)} tokens in {cov.get('binoculars_windows', 0)} window(s) of up to "
+                    f"{detector.WINDOW_TOKENS} tokens (context does not carry across windows). The classifier read {cov.get('classifier_tokens', 0)} of "
+                    f"{cov.get('classifier_total', 0)} tokens in {cov.get('classifier_windows', 0)} window(s) of up to {detector.CLASSIFIER_MAX_TOKENS} tokens "
+                    "(only whitespace between paragraphs can be skipped). No text was truncated."
+                )
 
         st.subheader("Sentences — relative highlights")
         st.caption(
@@ -216,8 +226,7 @@ with check:
                     "#": p.index + 1,
                     "Starts with": " ".join(p.text.split()[:8]) + "…",
                     "Words": len(p.text.split()),
-                    "Binoculars": None if p.binoculars is None else round(p.binoculars, 3),
-                    "Classifier %": None if p.classifier is None else round(p.classifier * 100),
+                    "AI likelihood %": None if p.classifier is None else round(p.classifier * 100),
                 }
                 for p in result.paragraphs
             ],

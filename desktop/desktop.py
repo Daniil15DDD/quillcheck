@@ -1,4 +1,4 @@
-"""Desktop window for the local AI-text checker (personal use on this Mac).
+"""Desktop window for QuillCheck (personal use on this Mac).
 
 Starts the existing Streamlit app on 127.0.0.1 through server_guard.py, waits until it
 answers, then shows it in a native window. Quitting (Cmd+Q or closing the window) stops
@@ -24,7 +24,7 @@ from pathlib import Path
 
 import webview
 
-APP_NAME = "AI Text Checker"
+APP_NAME = "QuillCheck"
 PROJECT = Path(__file__).resolve().parent.parent
 PYTHON = PROJECT / ".venv" / "bin" / "python"
 SUPPORT = Path.home() / "Library" / "Application Support" / APP_NAME
@@ -208,7 +208,7 @@ def watch_for_quit() -> None:
     _observer = QuitObserver.alloc().init()
     Foundation.NSNotificationCenter.defaultCenter().addObserver_selector_name_object_(
         _observer, "appWillTerminate:", AppKit.NSApplicationWillTerminateNotification, None)
-    try:  # menu bar shows "Quit AI Text Checker" rather than "Quit Python"
+    try:  # menu bar shows "Quit QuillCheck" rather than "Quit Python"
         Foundation.NSBundle.mainBundle().infoDictionary()["CFBundleName"] = APP_NAME
     except Exception:
         pass

@@ -28,6 +28,14 @@ button:disabled { opacity: .5; cursor: default; }
 .status.error { color: var(--err); }
 #summary .stat { padding: 8px; background: var(--card); border: 1px solid var(--line); border-radius: 4px; margin-bottom: 6px; }
 #summary .stat b { font-variant-numeric: tabular-nums; }
+.likely-label { color: var(--muted); font-size: 12px; }
+.likely { font-size: 14px; margin: 2px 0 6px; }
+.likely b { font-size: 26px; margin-right: 4px; }
+.likely.success b { color: #1e8e3e; }
+.likely.warning b { color: var(--warn); }
+.likely.error b { color: var(--err); }
+.bar { height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; margin-bottom: 6px; }
+.bar div { height: 100%; background: linear-gradient(90deg, #1e8e3e, #e3a008 50%, #d93025); }
 ol#cards { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
 .card { border: 1px solid var(--line); border-radius: 4px; padding: 8px; background: var(--card); }
 .card.done { opacity: .55; }

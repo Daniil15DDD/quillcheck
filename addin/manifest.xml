@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Word add-in manifest for the local AI Text Checker. Upload it in Word:
+<!-- Word add-in manifest for QuillCheck. Upload it in Word:
      Home > Add-ins > More Settings (or My Add-ins) > Upload My Add-in. Needs addin/run_addin.sh running. -->
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -10,7 +10,7 @@
   <Version>1.0.0.0</Version>
   <ProviderName>Local</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="AI Text Checker (local)"/>
+  <DisplayName DefaultValue="QuillCheck"/>
   <Description DefaultValue="Marks the most AI-like sentences and suggests local rewrites. Runs on your own computer."/>
   <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-64.png"/>
@@ -73,11 +73,11 @@
         <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
       </bt:Urls>
       <bt:ShortStrings>
-        <bt:String id="Group.Label" DefaultValue="AI Text Checker"/>
+        <bt:String id="Group.Label" DefaultValue="QuillCheck"/>
         <bt:String id="Button.Label" DefaultValue="Check text"/>
       </bt:ShortStrings>
       <bt:LongStrings>
-        <bt:String id="Button.Tip" DefaultValue="Open the local AI Text Checker panel."/>
+        <bt:String id="Button.Tip" DefaultValue="Open the QuillCheck panel (runs locally)."/>
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>

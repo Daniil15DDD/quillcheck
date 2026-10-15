@@ -1,4 +1,4 @@
-# Word add-in
+# QuillCheck Word add-in
 
 A side panel for Word (web and Mac desktop) that uses this app's local models. It marks the
 quarter of sentences that score most AI-like *within your document*, and for each one you can
@@ -16,16 +16,19 @@ get a local rewrite suggestion and choose Replace or Skip. Everything runs on th
    with no certificate warning. If Chrome asks to allow local network access, allow it.
 
    ```
-   ~/ai-text-checker/addin/run_addin.sh
+   ./addin/run_addin.sh        # run from the QuillCheck folder
    ```
 
 3. Add the panel to Word:
    - **Word in the browser:** open a document, then go to Home → Add-ins → More Add-ins →
-     My Add-ins → **Upload My Add-in** and choose `~/ai-text-checker/addin/manifest.xml`.
+     My Add-ins → **Upload My Add-in** and choose `addin/manifest.xml` from the QuillCheck folder.
      You may need to upload it again in a new browser session.
    - **Word for Mac:** copy `manifest.xml` into
      `~/Library/Containers/com.microsoft.Word/Data/Documents/wef/` (create the folder if needed),
-     restart Word, then find it under Home → Add-ins.
+     restart Word (Cmd+Q), then find it under Home → Add-ins → Developer Add-ins.
+     Double-clicking `addin/install_word_mac.command` does the copy. If macOS says
+     "Operation not permitted", use Finder instead: press Cmd+Shift+G, go to the folder above
+     and drag `manifest.xml` in.
 
 A **Check text** button appears on the Home tab.
 

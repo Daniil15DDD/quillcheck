@@ -6,6 +6,9 @@ headless = true
 # modules, and logs a traceback for each missing torchvision import. Not needed here.
 fileWatcherType = "none"
 
+[client]
+toolbarMode = "minimal"  # no "Deploy" button; this app is local only
+
 [browser]
 gatherUsageStats = false
 serverAddress = "127.0.0.1"

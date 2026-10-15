@@ -23,7 +23,7 @@ const setText = async txt => {
 };
 const btn = label => ev(`(()=>{const b=[...(${VIS}).querySelectorAll('button')].find(b=>b.innerText.trim()===${JSON.stringify(label)}); return b ? (b.disabled ? 'disabled' : 'enabled') : 'missing'})()`);
 const exc = () => ev(`[...document.querySelectorAll('[data-testid="stException"]')].map(e=>e.innerText.slice(0,200))`);
-const calib = () => { try { return JSON.parse(fs.readFileSync(`${process.env.HOME}/ai-text-checker/calibration.json`, 'utf8')).samples; } catch { return null; } };
+const calib = () => { try { return JSON.parse(fs.readFileSync(new URL("../calibration.json", import.meta.url), 'utf8')).samples; } catch { return null; } };
 const click = async label => { const st = await btn(label); if (st !== 'enabled') console.log(`   (button "${label}" is ${st})`); await ev(`(()=>{[...(${VIS}).querySelectorAll('button')].find(b=>b.innerText.trim()===${JSON.stringify(label)}).click(); return 1})()`); await idle(); };
 const metrics = () => ev(`[...(${VIS}).querySelectorAll('[data-testid="stMetricValue"]')].map(m=>m.innerText.trim())`);
 const alerts = () => ev(`[...(${VIS}).querySelectorAll('[data-testid="stAlert"], [data-testid="stException"]')].map(a=>a.innerText.trim().slice(0,220))`);
@@ -70,7 +70,7 @@ await gotoTab('Calibrate');
 for (const s of JSON.parse(fs.readFileSync(`${S}/ui_calib.json`, 'utf8'))) { await setText(s); await click('Score and add'); }
 const calRows = calib() || [];
 log('calibration: 3 samples stored', calRows.length === 3, JSON.stringify(calRows.map(r => ({ l: r.label, b: r.binoculars && +r.binoculars.toFixed(3), c: r.classifier && +r.classifier.toFixed(3), w: r.words }))));
-const raw = fs.readFileSync(`${process.env.HOME}/ai-text-checker/calibration.json`, 'utf8');
+const raw = fs.readFileSync(new URL("../calibration.json", import.meta.url), 'utf8');
 log('calibration: no text stored in file', calRows.length > 0 && !JSON.parse(fs.readFileSync(`${S}/ui_calib.json`, 'utf8')).some(s => raw.includes(s.slice(0, 40))) && Object.keys(calRows[0] || {}).join() === 'label,binoculars,classifier,words,added');
 await gotoTab('Check'); await click('Analyse');
 a = await alerts();

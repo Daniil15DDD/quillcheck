@@ -1,4 +1,4 @@
-# Validation report: local AI-text checker
+# Validation report: QuillCheck (local AI-text checker)
 
 Date: 2026-10-15. Machine: Apple M4, 16 GB RAM, macOS, PyTorch MPS.
 Scripts and score-only results are in `validation/`. No user writing was used anywhere; test texts are public HC3 data or synthetic.

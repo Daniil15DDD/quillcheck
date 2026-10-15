@@ -156,11 +156,16 @@ function scan() {
 function showSummary(r) {
   const stat = document.createElement("div");
   stat.className = "stat";
-  const clf = r.classifier == null ? "n/a" : `${(r.classifier * 100).toFixed(1)}%`;
-  const bino = r.binoculars == null ? "n/a" : r.binoculars.toFixed(3);
-  stat.innerHTML = `<div>${Number(r.words)} words · Classifier score <b>${clf}</b> · Binoculars <b>${bino}</b></div>`;
-  const extra = [r.calibration ? r.calibration.message
-    : "Binoculars is uncalibrated: add your own writing samples in the app's Calibrate tab to put it in context.", ...r.warnings];
+  const L = r.likelihood;
+  if (L) {
+    stat.innerHTML = `<div class="likely-label">Likelihood this was AI-generated</div>
+      <div class="likely ${L.severity}"><b>${Number(L.percent)}%</b> <span></span></div>
+      <div class="bar"><div style="width:${Number(L.percent)}%"></div></div>`;
+    stat.querySelector(".likely span").textContent = L.label;
+  } else {
+    stat.innerHTML = `<div class="likely-label">No estimate: the text was too short to score.</div>`;
+  }
+  const extra = [`${Number(r.words)} words checked. ${L ? L.caveat : ""}`, ...r.warnings];
   for (const t of extra) {
     const p = document.createElement("div");
     p.className = "note";
@@ -179,7 +184,7 @@ function addCard(ccId, s, scored) {
   sentence.title = "Show in document";
   const meta = document.createElement("div");
   meta.className = "meta";
-  meta.textContent = `Rank ${s.rank} of ${scored} in this text (1 = most AI-like here). Raw Binoculars ${s.binoculars.toFixed(3)}. Not a probability.`;
+  meta.textContent = `Number ${s.rank} of ${scored} most AI-like sentences in this text. A ranking, not a verdict on this sentence.`;
   const actions = document.createElement("div");
   actions.className = "actions row";
   const btn = document.createElement("button");

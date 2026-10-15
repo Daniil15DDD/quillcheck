@@ -22,6 +22,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
 
 import calibration  # noqa: E402
+import likelihood  # noqa: E402
 import worker  # noqa: E402
 
 HOST, PORT = "localhost", int(os.environ.get("AITC_PORT", 3000))
@@ -49,7 +50,11 @@ def scan(text: str) -> dict:
             "flagged": cutoff is not None and s.binoculars is not None and s.binoculars <= cutoff,
         })
     context = calibration.binoculars_context(result.binoculars) if result.binoculars is not None else None
+    reading = likelihood.reading(result.classifier)
     return {
+        "likelihood": None if reading is None else {
+            "percent": reading[0], "label": reading[1], "severity": reading[2], "caveat": likelihood.CAVEAT,
+        },
         "words": result.words,
         "binoculars": result.binoculars,
         "classifier": result.classifier,
