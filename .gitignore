@@ -1,0 +1,16 @@
+# Local environment and build output
+.venv/
+__pycache__/
+*.pyc
+dist/
+
+# Personal calibration scores (created by the Calibrate tab)
+calibration.json
+
+# HTTPS certificates for the Word add-in (made by office-addin-dev-certs)
+*.crt
+*.key
+*.pem
+
+# macOS
+.DS_Store

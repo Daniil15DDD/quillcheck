@@ -1,0 +1,20 @@
+const tab = await (await fetch('http://127.0.0.1:9222/json/new?http://127.0.0.1:8503', { method: 'PUT' })).json();
+const ws = new WebSocket(tab.webSocketDebuggerUrl); let id = 0; const pending = {};
+ws.onmessage = e => { const m = JSON.parse(e.data); if (m.id && pending[m.id]) pending[m.id](m); };
+const send = (method, params = {}) => new Promise(r => { pending[++id] = r; ws.send(JSON.stringify({ id, method, params })); });
+await new Promise(r => ws.onopen = r);
+const ev = async x => (await send('Runtime.evaluate', { expression: x, returnByValue: true })).result?.result?.value;
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+await sleep(5000); await ev(`[...document.querySelectorAll('[role=tab]')].find(t=>t.innerText.trim()==='Rewrite').click()`); await sleep(1000);
+const VIS = `[...document.querySelectorAll('[role=tabpanel]')].find(p => p.offsetParent && !p.hidden)`;
+await ev(`(()=>{const ta=(${VIS}).querySelector('textarea'); ta.focus(); return 1})()`);
+await send('Input.insertText', { text: 'Revenue grew because the firm cut prices and entered two new regional markets this year.' });
+await ev(`(${VIS}).querySelector('textarea').blur()`); await sleep(2000);
+await ev(`[...(${VIS}).querySelectorAll('button')].find(b=>b.innerText.trim()==='Rewrite').click()`);
+let a = []; for (let i = 0; i < 60 && !a.length; i++) { await sleep(1000); a = await ev(`[...document.querySelectorAll('[data-testid="stAlert"]')].map(x=>x.innerText).filter(t=>/cache|Model files/.test(t))`); }
+console.log('panel text:', JSON.stringify((await ev(`(${VIS}).innerText`)).slice(-700)));
+console.log('button:', await ev(`(()=>{const b=[...(${VIS}).querySelectorAll('button')].find(b=>b.innerText.trim()==='Rewrite'); return b && b.disabled})()`));
+console.log('all alerts:', JSON.stringify(await ev(`[...document.querySelectorAll('[data-testid="stAlert"],[data-testid="stException"]')].map(x=>x.innerText.slice(0,200))`)));
+const exc = await ev(`document.querySelectorAll('[data-testid="stException"]').length`);
+console.log(a.length && !exc ? 'PASS' : 'FAIL', ' rewrite, missing models: friendly error, no traceback |', (a[0] || '').slice(0, 200));
+await send('Target.closeTarget', { targetId: tab.id }).catch(() => {}); process.exit(0);

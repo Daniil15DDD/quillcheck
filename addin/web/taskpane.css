@@ -1,0 +1,43 @@
+:root {
+  --bg: #ffffff; --fg: #1f1f1f; --muted: #616161; --line: #e0e0e0; --card: #fafafa;
+  --accent: #185abd; --accent-fg: #ffffff; --mark: #fff2a8; --warn: #8a5300; --err: #b3261e;
+  --del: rgba(255, 80, 80, .22); --ins: rgba(40, 180, 80, .25);
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #1f1f1f; --fg: #f0f0f0; --muted: #a8a8a8; --line: #3a3a3a; --card: #262626;
+    --accent: #4f8fe8; --mark: #5c5220; --warn: #f0b35a; --err: #ff8a80; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; padding: 12px; background: var(--bg); color: var(--fg);
+  font: 13px/1.45 "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif; }
+h1 { font-size: 16px; margin: 0 0 4px; }
+h2 { font-size: 13px; margin: 0; }
+.note { color: var(--muted); font-size: 12px; margin: 4px 0 8px; }
+.note.warn { color: var(--warn); }
+.muted { color: var(--muted); font-weight: normal; }
+.controls { display: grid; gap: 8px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.row.between { justify-content: space-between; margin-top: 12px; }
+.check { display: flex; gap: 6px; align-items: center; }
+.field { display: grid; gap: 4px; }
+button, select { font: inherit; padding: 5px 10px; border: 1px solid var(--line); border-radius: 4px;
+  background: var(--card); color: var(--fg); cursor: pointer; }
+button.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
+button:disabled { opacity: .5; cursor: default; }
+.status { min-height: 18px; margin: 8px 0; color: var(--muted); }
+.status.error { color: var(--err); }
+#summary .stat { padding: 8px; background: var(--card); border: 1px solid var(--line); border-radius: 4px; margin-bottom: 6px; }
+#summary .stat b { font-variant-numeric: tabular-nums; }
+ol#cards { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.card { border: 1px solid var(--line); border-radius: 4px; padding: 8px; background: var(--card); }
+.card.done { opacity: .55; }
+.card .sentence { background: var(--mark); border-radius: 2px; padding: 0 2px; cursor: pointer; }
+.card .meta { color: var(--muted); font-size: 11px; margin-top: 4px; }
+.card .actions { margin-top: 6px; }
+.card .suggestion { margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--line); }
+.card .suggestion p { margin: 0 0 6px; }
+del.rw-del { background: var(--del); }
+ins.rw-ins { background: var(--ins); text-decoration: none; }
+ul.issues { margin: 4px 0 6px 16px; padding: 0; font-size: 11px; }
+ul.issues .error { color: var(--err); }
+ul.issues .warning { color: var(--warn); }

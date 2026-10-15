@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Text Checker</title>
+<script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+<link rel="stylesheet" href="taskpane.css">
+</head>
+<body>
+<header>
+  <h1>AI Text Checker</h1>
+  <p class="note"><strong>Model estimates only, not evidence of who wrote a text.</strong>
+    Runs on your Mac (localhost). Not comparable with GPTZero or Turnitin.</p>
+</header>
+
+<section class="controls">
+  <div class="row">
+    <button id="scan" class="primary">Scan document</button>
+    <button id="clear">Clear marks</button>
+  </div>
+  <label class="check"><input type="checkbox" id="selectionOnly"> Selected text only</label>
+  <label class="check"><input type="checkbox" id="auto"> Auto-scan after I stop typing</label>
+  <label class="field">Rewrite style
+    <select id="mode">
+      <option value="academic">Natural academic</option>
+      <option value="plain">Plain English</option>
+      <option value="light">Light proofreading</option>
+    </select>
+  </label>
+</section>
+
+<div id="status" class="status" role="status" aria-live="polite"></div>
+<div id="summary"></div>
+
+<section id="flagged" hidden>
+  <div class="row between">
+    <h2>Most AI-like sentences <span class="muted">(within this text)</span></h2>
+    <button id="suggestAll">Suggest all</button>
+  </div>
+  <p class="note">Yellow marks the quarter of sentences that score most machine-like <em>relative to the rest of this text</em>.
+    Every text has a top quarter, so a mark is not a verdict. Single-sentence scores are noisy.</p>
+  <p class="note warn"><strong>AI-assisted editing: review every change.</strong> A small local model writes the suggestions and can change
+    meaning. It is not designed or tested to change detector results. Follow your university's rules on AI use.</p>
+  <ol id="cards"></ol>
+</section>
+
+<script src="taskpane.js"></script>
+</body>
+</html>

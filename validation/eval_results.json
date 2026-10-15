@@ -1,0 +1,4441 @@
+{
+ "threshold_binoculars": 0.9488342196599902,
+ "calibration_n": 71,
+ "calibration_range": [
+  0.9414594210632506,
+  1.2880116277175786
+ ],
+ "sets": {
+  "HC3-finance": {
+   "n_human": 131,
+   "n_ai": 196,
+   "binoculars": {
+    "FP": 9,
+    "FPR": 0.06870229007633588,
+    "FPR_CI": [
+     0.03656213057709769,
+     0.12541755521719722
+    ],
+    "FN": 26,
+    "FNR": 0.1326530612244898,
+    "FNR_CI": [
+     0.09215818441493062,
+     0.18727112359701487
+    ],
+    "AUROC": 0.9620657423274653
+   },
+   "classifier": {
+    "FP": 17,
+    "FPR": 0.1297709923664122,
+    "FPR_CI": [
+     0.08262458385262628,
+     0.19801284554601623
+    ],
+    "FN": 0,
+    "FNR": 0.0,
+    "FNR_CI": [
+     0,
+     0.019223224794036875
+    ],
+    "AUROC": 0.9994936906060135
+   },
+   "models_agree_rate": 0.8532110091743119
+  },
+  "HC3-open_qa": {
+   "n_human": 24,
+   "n_ai": 169,
+   "binoculars": {
+    "FP": 4,
+    "FPR": 0.16666666666666666,
+    "FPR_CI": [
+     0.06678568000728924,
+     0.3585347038786943
+    ],
+    "FN": 3,
+    "FNR": 0.01775147928994083,
+    "FNR_CI": [
+     0.006055057530220304,
+     0.050884938396686175
+    ],
+    "AUROC": 0.979043392504931
+   },
+   "classifier": {
+    "FP": 5,
+    "FPR": 0.20833333333333334,
+    "FPR_CI": [
+     0.0924468910478809,
+     0.40470844485235474
+    ],
+    "FN": 0,
+    "FNR": 0.0,
+    "FNR_CI": [
+     0,
+     0.022226130746301812
+    ],
+    "AUROC": 0.998767258382643
+   },
+   "models_agree_rate": 0.9585492227979274
+  },
+  "newer-AI (Claude, business style)": {
+   "n_human": 0,
+   "n_ai": 16,
+   "binoculars": {
+    "FP": 0,
+    "FPR": null,
+    "FPR_CI": [
+     NaN,
+     NaN
+    ],
+    "FN": 12,
+    "FNR": 0.75,
+    "FNR_CI": [
+     0.5050123107060135,
+     0.8981809801576265
+    ],
+    "AUROC": null
+   },
+   "classifier": {
+    "FP": 0,
+    "FPR": null,
+    "FPR_CI": [
+     NaN,
+     NaN
+    ],
+    "FN": 3,
+    "FNR": 0.1875,
+    "FNR_CI": [
+     0.06591478773586765,
+     0.4300935986845823
+    ],
+    "AUROC": null
+   },
+   "models_agree_rate": 0.4375
+  },
+  "ALL": {
+   "n_human": 155,
+   "n_ai": 381,
+   "binoculars": {
+    "FP": 13,
+    "FPR": 0.08387096774193549,
+    "FPR_CI": [
+     0.04966785485828647,
+     0.13820232524566617
+    ],
+    "FN": 41,
+    "FNR": 0.10761154855643044,
+    "FNR_CI": [
+     0.08032023798425043,
+     0.14273672883014804
+    ],
+    "AUROC": 0.9549572432478198
+   },
+   "classifier": {
+    "FP": 22,
+    "FPR": 0.14193548387096774,
+    "FPR_CI": [
+     0.09563631485814623,
+     0.20555430523130136
+    ],
+    "FN": 3,
+    "FNR": 0.007874015748031496,
+    "FNR_CI": [
+     0.002681368617999178,
+     0.022891750296380138
+    ],
+    "AUROC": 0.9962407924815849
+   },
+   "models_agree_rate": 0.878731343283582
+  }
+ },
+ "seconds": 634.589289188385,
+ "per_text": [
+  {
+   "src": "finance#100",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 277,
+   "binoculars": 0.851469319248466,
+   "classifier": 0.999974250793457
+  },
+  {
+   "src": "finance#101",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 122,
+   "binoculars": 1.1902913322198618,
+   "classifier": 0.002514531835913658
+  },
+  {
+   "src": "finance#101",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 177,
+   "binoculars": 0.7879599716587722,
+   "classifier": 0.9477308988571167
+  },
+  {
+   "src": "finance#102",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 117,
+   "binoculars": 0.985010006157166,
+   "classifier": 0.4236550033092499
+  },
+  {
+   "src": "finance#102",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 133,
+   "binoculars": 0.7409921138036485,
+   "classifier": 0.9990743398666382
+  },
+  {
+   "src": "finance#103",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 286,
+   "binoculars": 1.0098456569470353,
+   "classifier": 0.006923752836883068
+  },
+  {
+   "src": "finance#103",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 91,
+   "binoculars": 0.7736268956238735,
+   "classifier": 0.9998834133148193
+  },
+  {
+   "src": "finance#104",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 203,
+   "binoculars": 1.0438175138336045,
+   "classifier": 0.20276623964309692
+  },
+  {
+   "src": "finance#104",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 191,
+   "binoculars": 0.8734183133755004,
+   "classifier": 0.9999681711196899
+  },
+  {
+   "src": "finance#105",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 132,
+   "binoculars": 0.917314497462995,
+   "classifier": 0.9999758005142212
+  },
+  {
+   "src": "finance#106",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 257,
+   "binoculars": 0.8891293082536313,
+   "classifier": 0.9998171925544739
+  },
+  {
+   "src": "finance#107",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 433,
+   "binoculars": 1.0114159928928994,
+   "classifier": 0.0032207369804382324
+  },
+  {
+   "src": "finance#107",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 245,
+   "binoculars": 0.9673873638629433,
+   "classifier": 0.9999715089797974
+  },
+  {
+   "src": "finance#108",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 161,
+   "binoculars": 1.0720991368356327,
+   "classifier": 0.005098344758152962
+  },
+  {
+   "src": "finance#108",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 194,
+   "binoculars": 0.899729178382953,
+   "classifier": 0.999863862991333
+  },
+  {
+   "src": "finance#109",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 234,
+   "binoculars": 0.8943987192562151,
+   "classifier": 0.9990575909614563
+  },
+  {
+   "src": "finance#110",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 140,
+   "binoculars": 0.8392338338185277,
+   "classifier": 0.9998757839202881
+  },
+  {
+   "src": "finance#111",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 167,
+   "binoculars": 1.0360632148722735,
+   "classifier": 0.06285469233989716
+  },
+  {
+   "src": "finance#111",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 125,
+   "binoculars": 0.762563894472496,
+   "classifier": 0.9993963241577148
+  },
+  {
+   "src": "finance#112",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 216,
+   "binoculars": 0.955238885433074,
+   "classifier": 0.012675651349127293
+  },
+  {
+   "src": "finance#112",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 231,
+   "binoculars": 0.899876973412953,
+   "classifier": 0.9988505840301514
+  },
+  {
+   "src": "finance#113",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 134,
+   "binoculars": 0.9783241778095372,
+   "classifier": 0.08344903588294983
+  },
+  {
+   "src": "finance#113",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 159,
+   "binoculars": 0.8478550949562486,
+   "classifier": 0.993882417678833
+  },
+  {
+   "src": "finance#114",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 291,
+   "binoculars": 0.9141418238466711,
+   "classifier": 0.9999567270278931
+  },
+  {
+   "src": "finance#115",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 93,
+   "binoculars": 1.0132751603822325,
+   "classifier": 0.08940233290195465
+  },
+  {
+   "src": "finance#115",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 199,
+   "binoculars": 0.9212269053462164,
+   "classifier": 0.9999442100524902
+  },
+  {
+   "src": "finance#116",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 304,
+   "binoculars": 1.0305636960685929,
+   "classifier": 0.04008439555764198
+  },
+  {
+   "src": "finance#116",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 239,
+   "binoculars": 0.8021188586288216,
+   "classifier": 0.9996126294136047
+  },
+  {
+   "src": "finance#117",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 250,
+   "binoculars": 1.0101806637440285,
+   "classifier": 0.07983003556728363
+  },
+  {
+   "src": "finance#117",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 217,
+   "binoculars": 0.741187297366734,
+   "classifier": 0.9999903440475464
+  },
+  {
+   "src": "finance#118",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 83,
+   "binoculars": 1.155028331030117,
+   "classifier": 0.04116879031062126
+  },
+  {
+   "src": "finance#118",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 220,
+   "binoculars": 0.938024324028452,
+   "classifier": 0.9999904632568359
+  },
+  {
+   "src": "finance#119",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 112,
+   "binoculars": 1.1256051247379657,
+   "classifier": 0.035577718168497086
+  },
+  {
+   "src": "finance#120",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 156,
+   "binoculars": 0.9455653552627488,
+   "classifier": 0.9999706745147705
+  },
+  {
+   "src": "finance#121",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 241,
+   "binoculars": 0.8410663598095793,
+   "classifier": 0.9999583959579468
+  },
+  {
+   "src": "finance#122",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 137,
+   "binoculars": 1.0699062202090894,
+   "classifier": 0.0672382265329361
+  },
+  {
+   "src": "finance#122",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 107,
+   "binoculars": 0.8978205253556371,
+   "classifier": 0.9985754489898682
+  },
+  {
+   "src": "finance#123",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 154,
+   "binoculars": 0.8851522614136104,
+   "classifier": 0.9999781847000122
+  },
+  {
+   "src": "finance#124",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 1219,
+   "binoculars": 1.0235128308940409,
+   "classifier": 0.07339100379407368
+  },
+  {
+   "src": "finance#124",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 207,
+   "binoculars": 0.9138768175046178,
+   "classifier": 0.9999520778656006
+  },
+  {
+   "src": "finance#125",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 182,
+   "binoculars": 0.9873107017932172,
+   "classifier": 0.0389653816819191
+  },
+  {
+   "src": "finance#125",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 223,
+   "binoculars": 0.8272562806842543,
+   "classifier": 0.9999775886535645
+  },
+  {
+   "src": "finance#126",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 257,
+   "binoculars": 0.8762397845866554,
+   "classifier": 0.9999756813049316
+  },
+  {
+   "src": "finance#127",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 120,
+   "binoculars": 0.789227920509646,
+   "classifier": 0.996803879737854
+  },
+  {
+   "src": "finance#128",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 220,
+   "binoculars": 0.8769740104291459,
+   "classifier": 0.9992521405220032
+  },
+  {
+   "src": "finance#129",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 315,
+   "binoculars": 1.0422546541501725,
+   "classifier": 0.004169816616922617
+  },
+  {
+   "src": "finance#129",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 188,
+   "binoculars": 1.082956859573855,
+   "classifier": 0.9999538660049438
+  },
+  {
+   "src": "finance#130",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 150,
+   "binoculars": 1.0681594529141194,
+   "classifier": 0.04014349728822708
+  },
+  {
+   "src": "finance#130",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 253,
+   "binoculars": 1.0393137555423142,
+   "classifier": 0.9999765157699585
+  },
+  {
+   "src": "finance#131",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 113,
+   "binoculars": 1.0698564767905485,
+   "classifier": 0.0066267019137740135
+  },
+  {
+   "src": "finance#131",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 147,
+   "binoculars": 0.9852607805667326,
+   "classifier": 0.99982088804245
+  },
+  {
+   "src": "finance#132",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 184,
+   "binoculars": 0.8645273319154012,
+   "classifier": 0.9998168349266052
+  },
+  {
+   "src": "finance#133",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 219,
+   "binoculars": 0.965044043798695,
+   "classifier": 0.03726801648736
+  },
+  {
+   "src": "finance#133",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 209,
+   "binoculars": 0.7979694294146087,
+   "classifier": 0.9998711347579956
+  },
+  {
+   "src": "finance#134",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 516,
+   "binoculars": 1.032338515180753,
+   "classifier": 0.0012983561027795076
+  },
+  {
+   "src": "finance#134",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 202,
+   "binoculars": 0.7410961583565551,
+   "classifier": 0.9999830722808838
+  },
+  {
+   "src": "finance#135",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 149,
+   "binoculars": 1.0914364401015466,
+   "classifier": 0.21097587049007416
+  },
+  {
+   "src": "finance#135",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 253,
+   "binoculars": 0.8562874435103632,
+   "classifier": 0.9999927282333374
+  },
+  {
+   "src": "finance#136",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 216,
+   "binoculars": 0.9650807462821679,
+   "classifier": 0.2284351885318756
+  },
+  {
+   "src": "finance#136",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 247,
+   "binoculars": 0.9622554673077014,
+   "classifier": 0.999954104423523
+  },
+  {
+   "src": "finance#137",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 162,
+   "binoculars": 1.0276596661817066,
+   "classifier": 0.07156378775835037
+  },
+  {
+   "src": "finance#137",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 250,
+   "binoculars": 0.9358055275538752,
+   "classifier": 0.9996771812438965
+  },
+  {
+   "src": "finance#138",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 237,
+   "binoculars": 0.7887418472585607,
+   "classifier": 0.9972866773605347
+  },
+  {
+   "src": "finance#139",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 251,
+   "binoculars": 0.991260125888608,
+   "classifier": 0.9999840259552002
+  },
+  {
+   "src": "finance#140",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 235,
+   "binoculars": 0.9634419451425025,
+   "classifier": 0.009626766666769981
+  },
+  {
+   "src": "finance#140",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 222,
+   "binoculars": 0.9062023329968777,
+   "classifier": 0.9999713897705078
+  },
+  {
+   "src": "finance#141",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 350,
+   "binoculars": 1.0246349088955766,
+   "classifier": 0.38407275080680847
+  },
+  {
+   "src": "finance#141",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 209,
+   "binoculars": 0.8443629003441523,
+   "classifier": 0.9999884366989136
+  },
+  {
+   "src": "finance#142",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 178,
+   "binoculars": 1.0263005789274369,
+   "classifier": 0.036759037524461746
+  },
+  {
+   "src": "finance#142",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 271,
+   "binoculars": 0.9024145760984111,
+   "classifier": 0.9932379722595215
+  },
+  {
+   "src": "finance#143",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 108,
+   "binoculars": 1.037804204264529,
+   "classifier": 0.9307728409767151
+  },
+  {
+   "src": "finance#143",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 196,
+   "binoculars": 0.8521762691126065,
+   "classifier": 0.9995927214622498
+  },
+  {
+   "src": "finance#144",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 230,
+   "binoculars": 0.8970708319678442,
+   "classifier": 0.9999808073043823
+  },
+  {
+   "src": "finance#145",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 172,
+   "binoculars": 0.991760818734977,
+   "classifier": 0.04671519994735718
+  },
+  {
+   "src": "finance#145",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 258,
+   "binoculars": 0.9346712512774631,
+   "classifier": 0.9999793767929077
+  },
+  {
+   "src": "finance#146",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 81,
+   "binoculars": 1.1716132088165379,
+   "classifier": 0.025728266686201096
+  },
+  {
+   "src": "finance#146",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 231,
+   "binoculars": 0.9207491400301069,
+   "classifier": 0.9999276399612427
+  },
+  {
+   "src": "finance#147",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 198,
+   "binoculars": 0.9285101160172478,
+   "classifier": 0.9999788999557495
+  },
+  {
+   "src": "finance#148",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 118,
+   "binoculars": 0.8236546418660298,
+   "classifier": 0.9990854263305664
+  },
+  {
+   "src": "finance#149",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 156,
+   "binoculars": 0.8099508843398974,
+   "classifier": 0.9993274211883545
+  },
+  {
+   "src": "finance#150",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 183,
+   "binoculars": 0.9362629675621869,
+   "classifier": 0.012146946042776108
+  },
+  {
+   "src": "finance#150",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 262,
+   "binoculars": 0.928139204096451,
+   "classifier": 0.9998948574066162
+  },
+  {
+   "src": "finance#151",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 94,
+   "binoculars": 0.7331216549498293,
+   "classifier": 0.9857839941978455
+  },
+  {
+   "src": "finance#152",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 89,
+   "binoculars": 1.068014418605703,
+   "classifier": 0.04020851477980614
+  },
+  {
+   "src": "finance#152",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 137,
+   "binoculars": 0.7457293960117924,
+   "classifier": 0.9985900521278381
+  },
+  {
+   "src": "finance#153",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 89,
+   "binoculars": 1.00410432376496,
+   "classifier": 0.5535462498664856
+  },
+  {
+   "src": "finance#153",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 230,
+   "binoculars": 0.8659065472614704,
+   "classifier": 0.9927688837051392
+  },
+  {
+   "src": "finance#154",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 166,
+   "binoculars": 0.7185381043369854,
+   "classifier": 0.9127031564712524
+  },
+  {
+   "src": "finance#155",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 324,
+   "binoculars": 1.0427003609647558,
+   "classifier": 0.002229246310889721
+  },
+  {
+   "src": "finance#155",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 148,
+   "binoculars": 0.7984000292038098,
+   "classifier": 0.9998891353607178
+  },
+  {
+   "src": "finance#156",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 168,
+   "binoculars": 1.0437615820814532,
+   "classifier": 0.017810694873332977
+  },
+  {
+   "src": "finance#156",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 198,
+   "binoculars": 0.782315698835482,
+   "classifier": 0.999871015548706
+  },
+  {
+   "src": "finance#157",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 171,
+   "binoculars": 0.857989027439121,
+   "classifier": 0.9999501705169678
+  },
+  {
+   "src": "finance#158",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 232,
+   "binoculars": 0.9153484524690576,
+   "classifier": 0.9957965612411499
+  },
+  {
+   "src": "finance#159",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 198,
+   "binoculars": 1.0248926345958254,
+   "classifier": 0.07164085656404495
+  },
+  {
+   "src": "finance#159",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 263,
+   "binoculars": 0.8488191004549155,
+   "classifier": 0.9983662962913513
+  },
+  {
+   "src": "finance#160",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 305,
+   "binoculars": 0.9778884799662876,
+   "classifier": 0.8138206601142883
+  },
+  {
+   "src": "finance#160",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 233,
+   "binoculars": 0.7821975881031374,
+   "classifier": 0.9995850920677185
+  },
+  {
+   "src": "finance#161",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 83,
+   "binoculars": 0.9509901286062299,
+   "classifier": 0.6797645092010498
+  },
+  {
+   "src": "finance#161",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 257,
+   "binoculars": 0.8523809934233736,
+   "classifier": 0.9999890327453613
+  },
+  {
+   "src": "finance#162",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 84,
+   "binoculars": 0.9076185660114424,
+   "classifier": 0.9940847754478455
+  },
+  {
+   "src": "finance#163",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 101,
+   "binoculars": 0.9492747647352843,
+   "classifier": 0.23814654350280762
+  },
+  {
+   "src": "finance#163",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 212,
+   "binoculars": 0.921846184269767,
+   "classifier": 0.9999830722808838
+  },
+  {
+   "src": "finance#164",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 274,
+   "binoculars": 1.0781732232224075,
+   "classifier": 0.023554818704724312
+  },
+  {
+   "src": "finance#164",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 192,
+   "binoculars": 0.8323668324538074,
+   "classifier": 0.9996321201324463
+  },
+  {
+   "src": "finance#165",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 172,
+   "binoculars": 1.0193994462385172,
+   "classifier": 0.6238762140274048
+  },
+  {
+   "src": "finance#165",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 187,
+   "binoculars": 0.7440719998506145,
+   "classifier": 0.999699592590332
+  },
+  {
+   "src": "finance#166",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 90,
+   "binoculars": 0.9119001057298108,
+   "classifier": 0.5875973701477051
+  },
+  {
+   "src": "finance#166",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 256,
+   "binoculars": 0.8824438690280664,
+   "classifier": 0.9999563694000244
+  },
+  {
+   "src": "finance#167",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 194,
+   "binoculars": 0.8438619989188287,
+   "classifier": 0.9998519420623779
+  },
+  {
+   "src": "finance#168",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 352,
+   "binoculars": 1.1673202716959046,
+   "classifier": 0.012987093068659306
+  },
+  {
+   "src": "finance#168",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 210,
+   "binoculars": 0.7965854907452145,
+   "classifier": 0.9998016953468323
+  },
+  {
+   "src": "finance#169",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 166,
+   "binoculars": 0.9918443683539555,
+   "classifier": 0.9999542236328125
+  },
+  {
+   "src": "finance#170",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 647,
+   "binoculars": 1.0088374603437298,
+   "classifier": 0.05086120218038559
+  },
+  {
+   "src": "finance#170",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 179,
+   "binoculars": 0.8096426495722024,
+   "classifier": 0.9999747276306152
+  },
+  {
+   "src": "finance#171",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 300,
+   "binoculars": 0.8457539721286952,
+   "classifier": 0.999941349029541
+  },
+  {
+   "src": "finance#172",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 253,
+   "binoculars": 1.0877708860414517,
+   "classifier": 0.31999173760414124
+  },
+  {
+   "src": "finance#172",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 294,
+   "binoculars": 1.0280798279186563,
+   "classifier": 0.999908447265625
+  },
+  {
+   "src": "finance#173",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 339,
+   "binoculars": 0.8344660268874576,
+   "classifier": 0.999961256980896
+  },
+  {
+   "src": "finance#174",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 661,
+   "binoculars": 1.0235865951216558,
+   "classifier": 0.16937237977981567
+  },
+  {
+   "src": "finance#174",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 220,
+   "binoculars": 0.8693088015654916,
+   "classifier": 0.999984622001648
+  },
+  {
+   "src": "finance#175",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 96,
+   "binoculars": 1.0180447700094288,
+   "classifier": 0.9818187952041626
+  },
+  {
+   "src": "finance#175",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 179,
+   "binoculars": 0.915845048889773,
+   "classifier": 0.9999622106552124
+  },
+  {
+   "src": "finance#176",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 131,
+   "binoculars": 1.0480075064603946,
+   "classifier": 0.6895105838775635
+  },
+  {
+   "src": "finance#176",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 230,
+   "binoculars": 0.8512742224232638,
+   "classifier": 0.9999715089797974
+  },
+  {
+   "src": "finance#177",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 333,
+   "binoculars": 0.9762546693425642,
+   "classifier": 0.32003793120384216
+  },
+  {
+   "src": "finance#177",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 209,
+   "binoculars": 0.774466631116954,
+   "classifier": 0.9997407793998718
+  },
+  {
+   "src": "finance#178",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 227,
+   "binoculars": 0.9936775878018399,
+   "classifier": 0.012184732593595982
+  },
+  {
+   "src": "finance#178",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 255,
+   "binoculars": 0.9012627092824862,
+   "classifier": 0.9999699592590332
+  },
+  {
+   "src": "finance#179",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 304,
+   "binoculars": 0.9952302720516989,
+   "classifier": 0.06738737225532532
+  },
+  {
+   "src": "finance#179",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 395,
+   "binoculars": 0.9109774653150562,
+   "classifier": 0.999944806098938
+  },
+  {
+   "src": "finance#180",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 282,
+   "binoculars": 0.9997040038138333,
+   "classifier": 0.005259170196950436
+  },
+  {
+   "src": "finance#180",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 260,
+   "binoculars": 0.939957656656761,
+   "classifier": 0.9999738931655884
+  },
+  {
+   "src": "finance#181",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 171,
+   "binoculars": 1.0417947900478475,
+   "classifier": 0.13509653508663177
+  },
+  {
+   "src": "finance#181",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 198,
+   "binoculars": 0.9292598095261175,
+   "classifier": 0.9999397993087769
+  },
+  {
+   "src": "finance#182",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 125,
+   "binoculars": 1.0121592753340498,
+   "classifier": 0.022560659795999527
+  },
+  {
+   "src": "finance#182",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 194,
+   "binoculars": 0.8832415670127286,
+   "classifier": 0.9999806880950928
+  },
+  {
+   "src": "finance#183",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 338,
+   "binoculars": 1.0106138781781755,
+   "classifier": 0.020296504721045494
+  },
+  {
+   "src": "finance#183",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 262,
+   "binoculars": 0.9111165667676515,
+   "classifier": 0.9999505281448364
+  },
+  {
+   "src": "finance#184",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 228,
+   "binoculars": 0.9049398186816019,
+   "classifier": 0.9629197120666504
+  },
+  {
+   "src": "finance#184",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 182,
+   "binoculars": 0.8374388440429075,
+   "classifier": 0.9999393224716187
+  },
+  {
+   "src": "finance#185",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 133,
+   "binoculars": 0.7532038685835911,
+   "classifier": 0.9996535778045654
+  },
+  {
+   "src": "finance#186",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 307,
+   "binoculars": 1.059454134685064,
+   "classifier": 0.005682828836143017
+  },
+  {
+   "src": "finance#186",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 266,
+   "binoculars": 0.8135316698304955,
+   "classifier": 0.9999288320541382
+  },
+  {
+   "src": "finance#187",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 83,
+   "binoculars": 1.0066763097136373,
+   "classifier": 0.0790092721581459
+  },
+  {
+   "src": "finance#187",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 364,
+   "binoculars": 0.8057737852765116,
+   "classifier": 0.9997503161430359
+  },
+  {
+   "src": "finance#188",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 298,
+   "binoculars": 0.9449578300678543,
+   "classifier": 0.05707065761089325
+  },
+  {
+   "src": "finance#188",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 216,
+   "binoculars": 0.8401033459051267,
+   "classifier": 0.9999778270721436
+  },
+  {
+   "src": "finance#189",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 223,
+   "binoculars": 1.0152781367123174,
+   "classifier": 0.999154806137085
+  },
+  {
+   "src": "finance#190",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 214,
+   "binoculars": 1.0524253479538552,
+   "classifier": 0.021321479231119156
+  },
+  {
+   "src": "finance#190",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 255,
+   "binoculars": 0.8587046355457378,
+   "classifier": 0.9999575614929199
+  },
+  {
+   "src": "finance#191",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 317,
+   "binoculars": 0.9524555819532683,
+   "classifier": 0.6304890513420105
+  },
+  {
+   "src": "finance#191",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 220,
+   "binoculars": 0.9499950469781813,
+   "classifier": 0.9999743700027466
+  },
+  {
+   "src": "finance#192",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 216,
+   "binoculars": 0.7518287182479828,
+   "classifier": 0.9980263113975525
+  },
+  {
+   "src": "finance#193",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 205,
+   "binoculars": 1.137494979744643,
+   "classifier": 0.00721050426363945
+  },
+  {
+   "src": "finance#193",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 245,
+   "binoculars": 0.8701757645423778,
+   "classifier": 0.9995328187942505
+  },
+  {
+   "src": "finance#194",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 236,
+   "binoculars": 0.9820488136587204,
+   "classifier": 0.9999579191207886
+  },
+  {
+   "src": "finance#195",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 101,
+   "binoculars": 0.8419038830726353,
+   "classifier": 0.9985377788543701
+  },
+  {
+   "src": "finance#196",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 424,
+   "binoculars": 1.0924955918165198,
+   "classifier": 0.1185101866722107
+  },
+  {
+   "src": "finance#196",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 237,
+   "binoculars": 0.9672804944109058,
+   "classifier": 0.9990799427032471
+  },
+  {
+   "src": "finance#197",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 157,
+   "binoculars": 1.0357378747534016,
+   "classifier": 0.01883203722536564
+  },
+  {
+   "src": "finance#197",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 191,
+   "binoculars": 0.7965495346201986,
+   "classifier": 0.999885082244873
+  },
+  {
+   "src": "finance#198",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 219,
+   "binoculars": 0.8828641883788575,
+   "classifier": 0.9931920170783997
+  },
+  {
+   "src": "finance#199",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 94,
+   "binoculars": 1.1013443297868837,
+   "classifier": 0.13704758882522583
+  },
+  {
+   "src": "finance#199",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 322,
+   "binoculars": 0.9352174151692273,
+   "classifier": 0.9996917247772217
+  },
+  {
+   "src": "finance#200",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 246,
+   "binoculars": 0.6344279056616379,
+   "classifier": 0.9999791383743286
+  },
+  {
+   "src": "finance#201",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 96,
+   "binoculars": 0.6246111193252251,
+   "classifier": 0.9999526739120483
+  },
+  {
+   "src": "finance#202",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 126,
+   "binoculars": 1.0779222485772688,
+   "classifier": 0.0433080792427063
+  },
+  {
+   "src": "finance#202",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 305,
+   "binoculars": 0.8324364448696062,
+   "classifier": 0.9999338388442993
+  },
+  {
+   "src": "finance#203",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 185,
+   "binoculars": 0.9656836995292803,
+   "classifier": 0.974783182144165
+  },
+  {
+   "src": "finance#204",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 86,
+   "binoculars": 1.0477024007613038,
+   "classifier": 0.006298772059381008
+  },
+  {
+   "src": "finance#204",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 179,
+   "binoculars": 0.861844665287321,
+   "classifier": 0.9999114274978638
+  },
+  {
+   "src": "finance#205",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 354,
+   "binoculars": 0.9925825562997944,
+   "classifier": 0.0058258227072656155
+  },
+  {
+   "src": "finance#205",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 216,
+   "binoculars": 0.8797511854843544,
+   "classifier": 0.9988875985145569
+  },
+  {
+   "src": "finance#206",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 161,
+   "binoculars": 0.954295007950638,
+   "classifier": 0.9998297691345215
+  },
+  {
+   "src": "finance#207",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 270,
+   "binoculars": 0.9803065043361668,
+   "classifier": 0.47423386573791504
+  },
+  {
+   "src": "finance#207",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 254,
+   "binoculars": 0.899965002264319,
+   "classifier": 0.9999854564666748
+  },
+  {
+   "src": "finance#208",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 124,
+   "binoculars": 0.9464825577896431,
+   "classifier": 0.2302742898464203
+  },
+  {
+   "src": "finance#208",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 132,
+   "binoculars": 0.8419445619425273,
+   "classifier": 0.9999252557754517
+  },
+  {
+   "src": "finance#209",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 226,
+   "binoculars": 1.1078242021064575,
+   "classifier": 0.024527251720428467
+  },
+  {
+   "src": "finance#209",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 262,
+   "binoculars": 0.8906713496714713,
+   "classifier": 0.9996007084846497
+  },
+  {
+   "src": "finance#210",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 113,
+   "binoculars": 0.7522045545079066,
+   "classifier": 0.9131091833114624
+  },
+  {
+   "src": "finance#211",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 96,
+   "binoculars": 0.9586074310372374,
+   "classifier": 0.044710226356983185
+  },
+  {
+   "src": "finance#211",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 214,
+   "binoculars": 0.8405325359550638,
+   "classifier": 0.99986732006073
+  },
+  {
+   "src": "finance#212",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 306,
+   "binoculars": 1.0781189311126556,
+   "classifier": 0.002267007017508149
+  },
+  {
+   "src": "finance#212",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 211,
+   "binoculars": 0.8585506180507825,
+   "classifier": 0.9999867677688599
+  },
+  {
+   "src": "finance#213",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 288,
+   "binoculars": 1.0033629409400933,
+   "classifier": 0.10417494922876358
+  },
+  {
+   "src": "finance#213",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 131,
+   "binoculars": 0.692717311626994,
+   "classifier": 0.9999291896820068
+  },
+  {
+   "src": "finance#214",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 190,
+   "binoculars": 0.7926372500021622,
+   "classifier": 0.9999692440032959
+  },
+  {
+   "src": "finance#215",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 126,
+   "binoculars": 1.0471138222964527,
+   "classifier": 0.21176019310951233
+  },
+  {
+   "src": "finance#215",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 289,
+   "binoculars": 0.8727192068744303,
+   "classifier": 0.9999873638153076
+  },
+  {
+   "src": "finance#216",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 122,
+   "binoculars": 1.0213343173778753,
+   "classifier": 0.10933905839920044
+  },
+  {
+   "src": "finance#216",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 220,
+   "binoculars": 0.8139545310915398,
+   "classifier": 0.9999719858169556
+  },
+  {
+   "src": "finance#217",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 181,
+   "binoculars": 0.8369874086888718,
+   "classifier": 0.9999687671661377
+  },
+  {
+   "src": "finance#218",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 278,
+   "binoculars": 1.0345333203985123,
+   "classifier": 0.023444946855306625
+  },
+  {
+   "src": "finance#218",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 182,
+   "binoculars": 0.914887491548771,
+   "classifier": 0.999990701675415
+  },
+  {
+   "src": "finance#220",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 87,
+   "binoculars": 0.6996848230841766,
+   "classifier": 0.9999595880508423
+  },
+  {
+   "src": "finance#221",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 262,
+   "binoculars": 0.894412939975884,
+   "classifier": 0.9998077750205994
+  },
+  {
+   "src": "finance#222",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 130,
+   "binoculars": 1.0351386274825625,
+   "classifier": 0.014728426933288574
+  },
+  {
+   "src": "finance#222",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 206,
+   "binoculars": 0.8325894597532806,
+   "classifier": 0.9997361302375793
+  },
+  {
+   "src": "finance#223",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 101,
+   "binoculars": 1.0853133163216155,
+   "classifier": 0.015643993392586708
+  },
+  {
+   "src": "finance#223",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 241,
+   "binoculars": 0.9717757548504707,
+   "classifier": 0.9999756813049316
+  },
+  {
+   "src": "finance#224",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 261,
+   "binoculars": 1.0590447021712386,
+   "classifier": 0.004059564787894487
+  },
+  {
+   "src": "finance#224",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 177,
+   "binoculars": 0.8231886404833183,
+   "classifier": 0.9998307228088379
+  },
+  {
+   "src": "finance#225",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 175,
+   "binoculars": 0.8642311153821195,
+   "classifier": 0.9950923919677734
+  },
+  {
+   "src": "finance#226",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 136,
+   "binoculars": 1.161122153444963,
+   "classifier": 0.0038711135275661945
+  },
+  {
+   "src": "finance#226",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 221,
+   "binoculars": 0.9294575946801309,
+   "classifier": 0.9999847412109375
+  },
+  {
+   "src": "finance#227",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 98,
+   "binoculars": 1.0609020048458453,
+   "classifier": 0.2759492099285126
+  },
+  {
+   "src": "finance#227",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 310,
+   "binoculars": 0.8097662792520393,
+   "classifier": 0.9999568462371826
+  },
+  {
+   "src": "finance#228",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 170,
+   "binoculars": 0.9339259214907275,
+   "classifier": 0.022176362574100494
+  },
+  {
+   "src": "finance#228",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 170,
+   "binoculars": 0.926003567318636,
+   "classifier": 0.9999772310256958
+  },
+  {
+   "src": "finance#229",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 517,
+   "binoculars": 1.020412705554223,
+   "classifier": 0.5080798864364624
+  },
+  {
+   "src": "finance#229",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 258,
+   "binoculars": 0.9430305764189807,
+   "classifier": 0.99986732006073
+  },
+  {
+   "src": "finance#230",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 145,
+   "binoculars": 1.0996759955267266,
+   "classifier": 0.0060689011588692665
+  },
+  {
+   "src": "finance#230",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 271,
+   "binoculars": 0.8654813858467535,
+   "classifier": 0.9999704360961914
+  },
+  {
+   "src": "finance#231",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 120,
+   "binoculars": 1.001968966696398,
+   "classifier": 0.10649371892213821
+  },
+  {
+   "src": "finance#231",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 246,
+   "binoculars": 0.9089395027624034,
+   "classifier": 0.9999722242355347
+  },
+  {
+   "src": "finance#232",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 568,
+   "binoculars": 0.9496288055690105,
+   "classifier": 0.27316707372665405
+  },
+  {
+   "src": "finance#232",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 187,
+   "binoculars": 0.7975822852905367,
+   "classifier": 0.9998043179512024
+  },
+  {
+   "src": "finance#233",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 112,
+   "binoculars": 0.8725395804829232,
+   "classifier": 0.9999771118164062
+  },
+  {
+   "src": "finance#234",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 243,
+   "binoculars": 0.8868935690289864,
+   "classifier": 0.9999887943267822
+  },
+  {
+   "src": "finance#235",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 162,
+   "binoculars": 1.0697739861377527,
+   "classifier": 0.1217193752527237
+  },
+  {
+   "src": "finance#235",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 190,
+   "binoculars": 0.8359055257411789,
+   "classifier": 0.9999409914016724
+  },
+  {
+   "src": "finance#236",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 106,
+   "binoculars": 1.0628515451107778,
+   "classifier": 0.5289249420166016
+  },
+  {
+   "src": "finance#236",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 240,
+   "binoculars": 0.9049147871864636,
+   "classifier": 0.9999862909317017
+  },
+  {
+   "src": "finance#237",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 88,
+   "binoculars": 1.0808927931584449,
+   "classifier": 0.030091846361756325
+  },
+  {
+   "src": "finance#237",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 97,
+   "binoculars": 0.6932184353210932,
+   "classifier": 0.9995349645614624
+  },
+  {
+   "src": "finance#238",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 565,
+   "binoculars": 0.993295458035388,
+   "classifier": 0.09559763967990875
+  },
+  {
+   "src": "finance#238",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 170,
+   "binoculars": 0.8783775326220858,
+   "classifier": 0.9999480247497559
+  },
+  {
+   "src": "finance#239",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 207,
+   "binoculars": 0.8450745870573239,
+   "classifier": 0.9999407529830933
+  },
+  {
+   "src": "finance#240",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 178,
+   "binoculars": 1.0052813695574438,
+   "classifier": 0.08515527844429016
+  },
+  {
+   "src": "finance#240",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 227,
+   "binoculars": 1.0164227437761626,
+   "classifier": 0.9999154806137085
+  },
+  {
+   "src": "finance#241",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 159,
+   "binoculars": 1.033359321905613,
+   "classifier": 0.4312635362148285
+  },
+  {
+   "src": "finance#241",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 224,
+   "binoculars": 0.9492892851440795,
+   "classifier": 0.9999842643737793
+  },
+  {
+   "src": "finance#242",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 114,
+   "binoculars": 1.0575334893209332,
+   "classifier": 0.35118338465690613
+  },
+  {
+   "src": "finance#242",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 266,
+   "binoculars": 0.872440689640468,
+   "classifier": 0.9999710321426392
+  },
+  {
+   "src": "finance#243",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 242,
+   "binoculars": 1.0632586197103198,
+   "classifier": 0.02233060821890831
+  },
+  {
+   "src": "finance#243",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 224,
+   "binoculars": 0.8942613660987493,
+   "classifier": 0.9992185831069946
+  },
+  {
+   "src": "finance#244",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 158,
+   "binoculars": 0.9956259071970239,
+   "classifier": 0.01059104036539793
+  },
+  {
+   "src": "finance#244",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 269,
+   "binoculars": 0.853650241580306,
+   "classifier": 0.9999822378158569
+  },
+  {
+   "src": "finance#245",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 293,
+   "binoculars": 1.0362091251270593,
+   "classifier": 0.007934517227113247
+  },
+  {
+   "src": "finance#245",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 202,
+   "binoculars": 0.8350667130944944,
+   "classifier": 0.9999667406082153
+  },
+  {
+   "src": "finance#246",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 92,
+   "binoculars": 1.0025467882373151,
+   "classifier": 0.10001954436302185
+  },
+  {
+   "src": "finance#246",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 217,
+   "binoculars": 0.8253429773307309,
+   "classifier": 0.9997245669364929
+  },
+  {
+   "src": "finance#247",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 376,
+   "binoculars": 0.9238345803107654,
+   "classifier": 0.02834991365671158
+  },
+  {
+   "src": "finance#247",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 341,
+   "binoculars": 0.8737815023583673,
+   "classifier": 0.9999209642410278
+  },
+  {
+   "src": "finance#248",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 81,
+   "binoculars": 0.9673107895736615,
+   "classifier": 0.864639937877655
+  },
+  {
+   "src": "finance#248",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 171,
+   "binoculars": 0.9404886039039336,
+   "classifier": 0.9999709129333496
+  },
+  {
+   "src": "finance#249",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 184,
+   "binoculars": 1.0809032295552357,
+   "classifier": 0.03112281672656536
+  },
+  {
+   "src": "finance#249",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 199,
+   "binoculars": 0.7544884989500024,
+   "classifier": 0.9958327412605286
+  },
+  {
+   "src": "finance#250",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 248,
+   "binoculars": 0.7887557828292314,
+   "classifier": 0.999919056892395
+  },
+  {
+   "src": "finance#252",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 151,
+   "binoculars": 1.001762198495419,
+   "classifier": 0.0293781366199255
+  },
+  {
+   "src": "finance#252",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 231,
+   "binoculars": 0.9594937086070342,
+   "classifier": 0.9999468326568604
+  },
+  {
+   "src": "finance#253",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 134,
+   "binoculars": 1.0696749187973844,
+   "classifier": 0.018637780100107193
+  },
+  {
+   "src": "finance#253",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 141,
+   "binoculars": 0.7793652080308097,
+   "classifier": 0.9489164352416992
+  },
+  {
+   "src": "finance#254",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 591,
+   "binoculars": 0.9866799613444807,
+   "classifier": 0.06582701206207275
+  },
+  {
+   "src": "finance#254",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 209,
+   "binoculars": 0.9042240464748664,
+   "classifier": 0.9999524354934692
+  },
+  {
+   "src": "finance#255",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 257,
+   "binoculars": 1.1543954775767435,
+   "classifier": 0.010101951658725739
+  },
+  {
+   "src": "finance#255",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 203,
+   "binoculars": 1.030127727285696,
+   "classifier": 0.9999163150787354
+  },
+  {
+   "src": "finance#256",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 301,
+   "binoculars": 1.085666503529305,
+   "classifier": 0.13667765259742737
+  },
+  {
+   "src": "finance#256",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 235,
+   "binoculars": 0.9551459309591561,
+   "classifier": 0.9992734789848328
+  },
+  {
+   "src": "finance#257",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 242,
+   "binoculars": 0.7296713561561575,
+   "classifier": 0.9994350075721741
+  },
+  {
+   "src": "finance#258",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 233,
+   "binoculars": 1.042904413205151,
+   "classifier": 0.1439724713563919
+  },
+  {
+   "src": "finance#258",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 258,
+   "binoculars": 0.7860540663980621,
+   "classifier": 0.999808132648468
+  },
+  {
+   "src": "finance#259",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 598,
+   "binoculars": 1.056735329933507,
+   "classifier": 0.0010925151873379946
+  },
+  {
+   "src": "finance#259",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 198,
+   "binoculars": 0.8263961111584388,
+   "classifier": 0.9996651411056519
+  },
+  {
+   "src": "finance#260",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 183,
+   "binoculars": 1.1001485309404024,
+   "classifier": 0.008271058090031147
+  },
+  {
+   "src": "finance#260",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 255,
+   "binoculars": 0.8625542419101639,
+   "classifier": 0.999961256980896
+  },
+  {
+   "src": "finance#261",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 123,
+   "binoculars": 0.8406077078852798,
+   "classifier": 0.9941005110740662
+  },
+  {
+   "src": "finance#262",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 185,
+   "binoculars": 0.8646963671381177,
+   "classifier": 0.99964439868927
+  },
+  {
+   "src": "finance#263",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 237,
+   "binoculars": 0.9312240120178299,
+   "classifier": 0.9998576641082764
+  },
+  {
+   "src": "finance#264",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 158,
+   "binoculars": 1.0472670293412238,
+   "classifier": 0.0794314593076706
+  },
+  {
+   "src": "finance#264",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 266,
+   "binoculars": 0.7293863612186687,
+   "classifier": 0.9999332427978516
+  },
+  {
+   "src": "finance#265",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 322,
+   "binoculars": 1.0359139745528245,
+   "classifier": 0.000625679618678987
+  },
+  {
+   "src": "finance#265",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 256,
+   "binoculars": 0.930121945885392,
+   "classifier": 0.9985824823379517
+  },
+  {
+   "src": "finance#266",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 166,
+   "binoculars": 0.7135646396431478,
+   "classifier": 0.9998693466186523
+  },
+  {
+   "src": "finance#267",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 183,
+   "binoculars": 1.1101874741817703,
+   "classifier": 0.047614146023988724
+  },
+  {
+   "src": "finance#267",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 163,
+   "binoculars": 0.9541875875003412,
+   "classifier": 0.999935507774353
+  },
+  {
+   "src": "finance#268",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 284,
+   "binoculars": 0.8433787176444559,
+   "classifier": 0.999954104423523
+  },
+  {
+   "src": "finance#269",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 393,
+   "binoculars": 1.1508717526243404,
+   "classifier": 0.008986217901110649
+  },
+  {
+   "src": "finance#269",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 122,
+   "binoculars": 0.9296739330614227,
+   "classifier": 0.9998061060905457
+  },
+  {
+   "src": "finance#270",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 494,
+   "binoculars": 1.0964473080833406,
+   "classifier": 0.03278624638915062
+  },
+  {
+   "src": "finance#270",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 256,
+   "binoculars": 0.8752340036328847,
+   "classifier": 0.9998940229415894
+  },
+  {
+   "src": "finance#271",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 212,
+   "binoculars": 1.007085900137554,
+   "classifier": 0.4635847210884094
+  },
+  {
+   "src": "finance#271",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 138,
+   "binoculars": 0.8546133201197621,
+   "classifier": 0.9998125433921814
+  },
+  {
+   "src": "finance#272",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 185,
+   "binoculars": 0.7764313311442615,
+   "classifier": 0.9999042749404907
+  },
+  {
+   "src": "finance#273",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 123,
+   "binoculars": 0.9286598237593217,
+   "classifier": 0.13249146938323975
+  },
+  {
+   "src": "finance#273",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 214,
+   "binoculars": 1.0311886749251602,
+   "classifier": 0.9999873638153076
+  },
+  {
+   "src": "finance#274",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 189,
+   "binoculars": 0.8398865886508542,
+   "classifier": 0.9999473094940186
+  },
+  {
+   "src": "finance#275",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 123,
+   "binoculars": 0.9956269285642437,
+   "classifier": 0.6317542791366577
+  },
+  {
+   "src": "finance#275",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 215,
+   "binoculars": 0.7924091278408839,
+   "classifier": 0.9999641180038452
+  },
+  {
+   "src": "finance#276",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 377,
+   "binoculars": 0.9820029825010491,
+   "classifier": 0.0033318123314529657
+  },
+  {
+   "src": "finance#276",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 244,
+   "binoculars": 0.9107684463065399,
+   "classifier": 0.9999542236328125
+  },
+  {
+   "src": "finance#277",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 110,
+   "binoculars": 1.1478510788998666,
+   "classifier": 0.09592480212450027
+  },
+  {
+   "src": "finance#277",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 125,
+   "binoculars": 0.8952069999628396,
+   "classifier": 0.9997650980949402
+  },
+  {
+   "src": "finance#278",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 136,
+   "binoculars": 1.0071666736913167,
+   "classifier": 0.8666629195213318
+  },
+  {
+   "src": "finance#278",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 214,
+   "binoculars": 0.9545636738514969,
+   "classifier": 0.997568666934967
+  },
+  {
+   "src": "finance#279",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 448,
+   "binoculars": 0.9983758558544833,
+   "classifier": 0.5983349084854126
+  },
+  {
+   "src": "finance#279",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 312,
+   "binoculars": 0.7698996446375052,
+   "classifier": 0.9993764758110046
+  },
+  {
+   "src": "finance#280",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 249,
+   "binoculars": 0.9650632590706458,
+   "classifier": 0.9999775886535645
+  },
+  {
+   "src": "finance#281",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 104,
+   "binoculars": 1.1297307949558857,
+   "classifier": 0.040250346064567566
+  },
+  {
+   "src": "finance#281",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 229,
+   "binoculars": 0.8155443964463501,
+   "classifier": 0.9999734163284302
+  },
+  {
+   "src": "finance#282",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 572,
+   "binoculars": 1.000396320152405,
+   "classifier": 0.0023558505345135927
+  },
+  {
+   "src": "finance#282",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 304,
+   "binoculars": 0.7875297104966094,
+   "classifier": 0.9999823570251465
+  },
+  {
+   "src": "finance#283",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 177,
+   "binoculars": 0.7324698409760886,
+   "classifier": 0.9999785423278809
+  },
+  {
+   "src": "finance#284",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 330,
+   "binoculars": 1.0563069836864156,
+   "classifier": 0.02455275133252144
+  },
+  {
+   "src": "finance#284",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 150,
+   "binoculars": 0.8818274334841911,
+   "classifier": 0.9923650622367859
+  },
+  {
+   "src": "finance#285",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 174,
+   "binoculars": 1.0971189950796667,
+   "classifier": 0.24164769053459167
+  },
+  {
+   "src": "finance#285",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 237,
+   "binoculars": 0.8920440857968903,
+   "classifier": 0.9999842643737793
+  },
+  {
+   "src": "finance#286",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 232,
+   "binoculars": 0.8209660487743483,
+   "classifier": 0.9998252987861633
+  },
+  {
+   "src": "finance#287",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 261,
+   "binoculars": 0.7305351353269751,
+   "classifier": 0.9855690598487854
+  },
+  {
+   "src": "finance#288",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 312,
+   "binoculars": 0.8355910505173093,
+   "classifier": 0.9998687505722046
+  },
+  {
+   "src": "finance#289",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 145,
+   "binoculars": 0.941289505500092,
+   "classifier": 0.029681287705898285
+  },
+  {
+   "src": "finance#289",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 252,
+   "binoculars": 0.7812402488612583,
+   "classifier": 0.999981164932251
+  },
+  {
+   "src": "finance#290",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 207,
+   "binoculars": 1.0437710537762452,
+   "classifier": 0.5477454662322998
+  },
+  {
+   "src": "finance#290",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 207,
+   "binoculars": 0.880844196664315,
+   "classifier": 0.9997732043266296
+  },
+  {
+   "src": "finance#292",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 100,
+   "binoculars": 1.0930943876109216,
+   "classifier": 0.04149193316698074
+  },
+  {
+   "src": "finance#292",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 311,
+   "binoculars": 1.0454134544248561,
+   "classifier": 0.9999762773513794
+  },
+  {
+   "src": "finance#293",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 205,
+   "binoculars": 0.821628528530268,
+   "classifier": 0.9937312006950378
+  },
+  {
+   "src": "finance#294",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 235,
+   "binoculars": 0.898079589170034,
+   "classifier": 0.9999798536300659
+  },
+  {
+   "src": "finance#295",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 223,
+   "binoculars": 0.955061638680716,
+   "classifier": 0.9999274015426636
+  },
+  {
+   "src": "finance#296",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 396,
+   "binoculars": 1.039976985142273,
+   "classifier": 0.034961335361003876
+  },
+  {
+   "src": "finance#296",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 192,
+   "binoculars": 0.8025022704005459,
+   "classifier": 0.9998865127563477
+  },
+  {
+   "src": "finance#297",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 145,
+   "binoculars": 0.6268087603926163,
+   "classifier": 0.9968282580375671
+  },
+  {
+   "src": "finance#298",
+   "set": "HC3-finance",
+   "label": "human",
+   "words": 104,
+   "binoculars": 1.027640282603583,
+   "classifier": 0.11337128281593323
+  },
+  {
+   "src": "finance#298",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 212,
+   "binoculars": 0.7037689301487551,
+   "classifier": 0.9999675750732422
+  },
+  {
+   "src": "finance#299",
+   "set": "HC3-finance",
+   "label": "ai",
+   "words": 111,
+   "binoculars": 0.7303456977599867,
+   "classifier": 0.9500772356987
+  },
+  {
+   "src": "open_qa#0",
+   "set": "HC3-open_qa",
+   "label": "human",
+   "words": 206,
+   "binoculars": 0.97241996560527,
+   "classifier": 0.0018465440953150392
+  },
+  {
+   "src": "open_qa#0",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 230,
+   "binoculars": 0.9321914179899178,
+   "classifier": 0.9999532699584961
+  },
+  {
+   "src": "open_qa#1",
+   "set": "HC3-open_qa",
+   "label": "human",
+   "words": 188,
+   "binoculars": 1.0640569850365507,
+   "classifier": 0.012454196810722351
+  },
+  {
+   "src": "open_qa#1",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 114,
+   "binoculars": 0.7428756785254502,
+   "classifier": 0.9994213581085205
+  },
+  {
+   "src": "open_qa#2",
+   "set": "HC3-open_qa",
+   "label": "human",
+   "words": 96,
+   "binoculars": 1.0235733222406151,
+   "classifier": 0.635468065738678
+  },
+  {
+   "src": "open_qa#2",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 119,
+   "binoculars": 0.8337252106195912,
+   "classifier": 0.9983383417129517
+  },
+  {
+   "src": "open_qa#3",
+   "set": "HC3-open_qa",
+   "label": "human",
+   "words": 147,
+   "binoculars": 0.9284998278783569,
+   "classifier": 0.06738876551389694
+  },
+  {
+   "src": "open_qa#3",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 177,
+   "binoculars": 0.8874475630058574,
+   "classifier": 0.9999408721923828
+  },
+  {
+   "src": "open_qa#4",
+   "set": "HC3-open_qa",
+   "label": "human",
+   "words": 123,
+   "binoculars": 1.0388038640134631,
+   "classifier": 0.02066011354327202
+  },
+  {
+   "src": "open_qa#4",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 111,
+   "binoculars": 0.7444793691824652,
+   "classifier": 0.9953305721282959
+  },
+  {
+   "src": "open_qa#5",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 101,
+   "binoculars": 0.8176379296843265,
+   "classifier": 0.9903524518013
+  },
+  {
+   "src": "open_qa#6",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 83,
+   "binoculars": 0.7733701558122784,
+   "classifier": 0.8482378721237183
+  },
+  {
+   "src": "open_qa#7",
+   "set": "HC3-open_qa",
+   "label": "human",
+   "words": 88,
+   "binoculars": 1.1086959143213926,
+   "classifier": 0.24579676985740662
+  },
+  {
+   "src": "open_qa#7",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 111,
+   "binoculars": 0.822874106408441,
+   "classifier": 0.9994094371795654
+  },
+  {
+   "src": "open_qa#8",
+   "set": "HC3-open_qa",
+   "label": "human",
+   "words": 91,
+   "binoculars": 1.15965590390303,
+   "classifier": 0.6909842491149902
+  },
+  {
+   "src": "open_qa#8",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 124,
+   "binoculars": 0.6267849405795463,
+   "classifier": 0.9996004700660706
+  },
+  {
+   "src": "open_qa#9",
+   "set": "HC3-open_qa",
+   "label": "human",
+   "words": 116,
+   "binoculars": 1.0755319588993046,
+   "classifier": 0.026209818199276924
+  },
+  {
+   "src": "open_qa#9",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 125,
+   "binoculars": 0.7410921222366987,
+   "classifier": 0.9990216493606567
+  },
+  {
+   "src": "open_qa#10",
+   "set": "HC3-open_qa",
+   "label": "human",
+   "words": 134,
+   "binoculars": 0.967594231841755,
+   "classifier": 0.27969759702682495
+  },
+  {
+   "src": "open_qa#10",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 237,
+   "binoculars": 0.8765102999068844,
+   "classifier": 0.9999797344207764
+  },
+  {
+   "src": "open_qa#11",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 112,
+   "binoculars": 0.641314486210785,
+   "classifier": 0.9991071820259094
+  },
+  {
+   "src": "open_qa#12",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 165,
+   "binoculars": 0.8346251816683958,
+   "classifier": 0.9999161958694458
+  },
+  {
+   "src": "open_qa#13",
+   "set": "HC3-open_qa",
+   "label": "human",
+   "words": 105,
+   "binoculars": 1.0715665050099326,
+   "classifier": 0.4488533139228821
+  },
+  {
+   "src": "open_qa#13",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 213,
+   "binoculars": 0.829564755835085,
+   "classifier": 0.9999750852584839
+  },
+  {
+   "src": "open_qa#14",
+   "set": "HC3-open_qa",
+   "label": "human",
+   "words": 81,
+   "binoculars": 1.0082948608513989,
+   "classifier": 0.20661486685276031
+  },
+  {
+   "src": "open_qa#14",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 178,
+   "binoculars": 0.8605728193888169,
+   "classifier": 0.999496579170227
+  },
+  {
+   "src": "open_qa#15",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 190,
+   "binoculars": 0.8638204673491932,
+   "classifier": 0.9999510049819946
+  },
+  {
+   "src": "open_qa#16",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 184,
+   "binoculars": 0.804597663711302,
+   "classifier": 0.9999659061431885
+  },
+  {
+   "src": "open_qa#17",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 167,
+   "binoculars": 0.8257152281146387,
+   "classifier": 0.9962270259857178
+  },
+  {
+   "src": "open_qa#18",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 231,
+   "binoculars": 0.791718572572957,
+   "classifier": 0.9999850988388062
+  },
+  {
+   "src": "open_qa#19",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 175,
+   "binoculars": 0.8795897496463922,
+   "classifier": 0.9993022680282593
+  },
+  {
+   "src": "open_qa#20",
+   "set": "HC3-open_qa",
+   "label": "human",
+   "words": 88,
+   "binoculars": 0.9071844702442364,
+   "classifier": 0.8139913082122803
+  },
+  {
+   "src": "open_qa#20",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 87,
+   "binoculars": 0.6792479878105453,
+   "classifier": 0.9965962767601013
+  },
+  {
+   "src": "open_qa#21",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 180,
+   "binoculars": 0.8578920614424452,
+   "classifier": 0.9997701048851013
+  },
+  {
+   "src": "open_qa#22",
+   "set": "HC3-open_qa",
+   "label": "human",
+   "words": 104,
+   "binoculars": 1.0216281706545904,
+   "classifier": 0.12613417208194733
+  },
+  {
+   "src": "open_qa#22",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 226,
+   "binoculars": 1.0402159967525768,
+   "classifier": 0.9999284744262695
+  },
+  {
+   "src": "open_qa#23",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 239,
+   "binoculars": 0.8657891617931525,
+   "classifier": 0.9999043941497803
+  },
+  {
+   "src": "open_qa#24",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 144,
+   "binoculars": 0.8974817959437513,
+   "classifier": 0.9998964071273804
+  },
+  {
+   "src": "open_qa#25",
+   "set": "HC3-open_qa",
+   "label": "human",
+   "words": 106,
+   "binoculars": 0.9410367983915802,
+   "classifier": 0.7677212953567505
+  },
+  {
+   "src": "open_qa#25",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 106,
+   "binoculars": 0.7607728189505032,
+   "classifier": 0.9874054789543152
+  },
+  {
+   "src": "open_qa#26",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 194,
+   "binoculars": 0.785120808054252,
+   "classifier": 0.9995090961456299
+  },
+  {
+   "src": "open_qa#27",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 182,
+   "binoculars": 0.783038950951472,
+   "classifier": 0.9999730587005615
+  },
+  {
+   "src": "open_qa#28",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 110,
+   "binoculars": 0.6422785896885493,
+   "classifier": 0.9773555994033813
+  },
+  {
+   "src": "open_qa#29",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 157,
+   "binoculars": 0.7879980254393081,
+   "classifier": 0.9989140033721924
+  },
+  {
+   "src": "open_qa#30",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 97,
+   "binoculars": 0.7192855803165816,
+   "classifier": 0.9984116554260254
+  },
+  {
+   "src": "open_qa#31",
+   "set": "HC3-open_qa",
+   "label": "human",
+   "words": 95,
+   "binoculars": 1.0653677302276778,
+   "classifier": 0.046026770025491714
+  },
+  {
+   "src": "open_qa#31",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 252,
+   "binoculars": 0.9159870703154175,
+   "classifier": 0.9999793767929077
+  },
+  {
+   "src": "open_qa#32",
+   "set": "HC3-open_qa",
+   "label": "human",
+   "words": 121,
+   "binoculars": 1.0455846457168936,
+   "classifier": 0.12539149820804596
+  },
+  {
+   "src": "open_qa#32",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 104,
+   "binoculars": 0.8237970801193156,
+   "classifier": 0.9985607266426086
+  },
+  {
+   "src": "open_qa#33",
+   "set": "HC3-open_qa",
+   "label": "human",
+   "words": 96,
+   "binoculars": 1.002799980749744,
+   "classifier": 0.06899036467075348
+  },
+  {
+   "src": "open_qa#33",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 204,
+   "binoculars": 0.8762627840923533,
+   "classifier": 0.9972938895225525
+  },
+  {
+   "src": "open_qa#35",
+   "set": "HC3-open_qa",
+   "label": "human",
+   "words": 88,
+   "binoculars": 1.019663468568672,
+   "classifier": 0.5443761348724365
+  },
+  {
+   "src": "open_qa#35",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 219,
+   "binoculars": 0.743244487015285,
+   "classifier": 0.9999604225158691
+  },
+  {
+   "src": "open_qa#36",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 274,
+   "binoculars": 0.8605188183319935,
+   "classifier": 0.9988683462142944
+  },
+  {
+   "src": "open_qa#37",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 98,
+   "binoculars": 0.7589145776157445,
+   "classifier": 0.9880372285842896
+  },
+  {
+   "src": "open_qa#38",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 90,
+   "binoculars": 0.6951636905159844,
+   "classifier": 0.9990278482437134
+  },
+  {
+   "src": "open_qa#39",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 275,
+   "binoculars": 0.8475512677879652,
+   "classifier": 0.9998698234558105
+  },
+  {
+   "src": "open_qa#40",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 168,
+   "binoculars": 0.8337513459649715,
+   "classifier": 0.9995337724685669
+  },
+  {
+   "src": "open_qa#42",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 149,
+   "binoculars": 0.7172928100360049,
+   "classifier": 0.9999401569366455
+  },
+  {
+   "src": "open_qa#43",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 156,
+   "binoculars": 0.9474245175459104,
+   "classifier": 0.9998626708984375
+  },
+  {
+   "src": "open_qa#44",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 124,
+   "binoculars": 0.6730677627088383,
+   "classifier": 0.9986147880554199
+  },
+  {
+   "src": "open_qa#45",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 121,
+   "binoculars": 0.832775753271135,
+   "classifier": 0.9989148378372192
+  },
+  {
+   "src": "open_qa#46",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 217,
+   "binoculars": 0.7915827436553133,
+   "classifier": 0.999219536781311
+  },
+  {
+   "src": "open_qa#47",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 128,
+   "binoculars": 0.8385897751765021,
+   "classifier": 0.9999260902404785
+  },
+  {
+   "src": "open_qa#49",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 133,
+   "binoculars": 0.8028843953103518,
+   "classifier": 0.9993071556091309
+  },
+  {
+   "src": "open_qa#50",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 146,
+   "binoculars": 0.7381806463028396,
+   "classifier": 0.9998071789741516
+  },
+  {
+   "src": "open_qa#51",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 140,
+   "binoculars": 0.7000390458222229,
+   "classifier": 0.9952555298805237
+  },
+  {
+   "src": "open_qa#52",
+   "set": "HC3-open_qa",
+   "label": "human",
+   "words": 90,
+   "binoculars": 1.172070674392681,
+   "classifier": 0.03444892540574074
+  },
+  {
+   "src": "open_qa#53",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 255,
+   "binoculars": 0.9096164754990517,
+   "classifier": 0.9999386072158813
+  },
+  {
+   "src": "open_qa#54",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 110,
+   "binoculars": 0.6588672606188405,
+   "classifier": 0.9997079968452454
+  },
+  {
+   "src": "open_qa#55",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 119,
+   "binoculars": 0.6848938683095778,
+   "classifier": 0.9999697208404541
+  },
+  {
+   "src": "open_qa#56",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 90,
+   "binoculars": 0.6958444527105208,
+   "classifier": 0.9740602970123291
+  },
+  {
+   "src": "open_qa#57",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 173,
+   "binoculars": 0.7527212933541382,
+   "classifier": 0.9956761002540588
+  },
+  {
+   "src": "open_qa#60",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 102,
+   "binoculars": 0.6165074171718322,
+   "classifier": 0.9969174861907959
+  },
+  {
+   "src": "open_qa#61",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 105,
+   "binoculars": 0.7206409245821258,
+   "classifier": 0.9914280772209167
+  },
+  {
+   "src": "open_qa#62",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 174,
+   "binoculars": 0.7558049997251138,
+   "classifier": 0.9990881681442261
+  },
+  {
+   "src": "open_qa#63",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 255,
+   "binoculars": 0.9080720603413717,
+   "classifier": 0.9997751116752625
+  },
+  {
+   "src": "open_qa#64",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 127,
+   "binoculars": 0.7254026965927489,
+   "classifier": 0.9981167316436768
+  },
+  {
+   "src": "open_qa#65",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 85,
+   "binoculars": 0.7081711777596473,
+   "classifier": 0.986635148525238
+  },
+  {
+   "src": "open_qa#66",
+   "set": "HC3-open_qa",
+   "label": "human",
+   "words": 110,
+   "binoculars": 0.8835491407763779,
+   "classifier": 0.19404761493206024
+  },
+  {
+   "src": "open_qa#66",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 109,
+   "binoculars": 0.891946734462418,
+   "classifier": 0.9924397468566895
+  },
+  {
+   "src": "open_qa#67",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 103,
+   "binoculars": 0.9409831687434603,
+   "classifier": 0.9977043271064758
+  },
+  {
+   "src": "open_qa#68",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 120,
+   "binoculars": 0.8177418587615741,
+   "classifier": 0.9999102354049683
+  },
+  {
+   "src": "open_qa#69",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 95,
+   "binoculars": 0.7303888581286784,
+   "classifier": 0.9996891021728516
+  },
+  {
+   "src": "open_qa#71",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 153,
+   "binoculars": 0.8098690261482107,
+   "classifier": 0.9988730549812317
+  },
+  {
+   "src": "open_qa#72",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 117,
+   "binoculars": 0.7516295692715351,
+   "classifier": 0.9970092177391052
+  },
+  {
+   "src": "open_qa#73",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 152,
+   "binoculars": 0.8955427928424265,
+   "classifier": 0.9995763897895813
+  },
+  {
+   "src": "open_qa#75",
+   "set": "HC3-open_qa",
+   "label": "human",
+   "words": 93,
+   "binoculars": 1.0396355355749243,
+   "classifier": 0.1418539583683014
+  },
+  {
+   "src": "open_qa#76",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 93,
+   "binoculars": 0.8323292398693282,
+   "classifier": 0.9992227554321289
+  },
+  {
+   "src": "open_qa#77",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 87,
+   "binoculars": 0.6368721857229322,
+   "classifier": 0.9994993209838867
+  },
+  {
+   "src": "open_qa#78",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 158,
+   "binoculars": 0.7563722601958062,
+   "classifier": 0.9964610934257507
+  },
+  {
+   "src": "open_qa#79",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 81,
+   "binoculars": 0.7621888211165369,
+   "classifier": 0.9997310042381287
+  },
+  {
+   "src": "open_qa#80",
+   "set": "HC3-open_qa",
+   "label": "human",
+   "words": 106,
+   "binoculars": 1.175128078043584,
+   "classifier": 0.0554063655436039
+  },
+  {
+   "src": "open_qa#80",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 90,
+   "binoculars": 0.6516142034903739,
+   "classifier": 0.9995881915092468
+  },
+  {
+   "src": "open_qa#81",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 216,
+   "binoculars": 0.8549917915897786,
+   "classifier": 0.9998761415481567
+  },
+  {
+   "src": "open_qa#82",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 186,
+   "binoculars": 0.7079738903395888,
+   "classifier": 0.9999103546142578
+  },
+  {
+   "src": "open_qa#83",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 133,
+   "binoculars": 1.0680663241634911,
+   "classifier": 0.9999125003814697
+  },
+  {
+   "src": "open_qa#84",
+   "set": "HC3-open_qa",
+   "label": "human",
+   "words": 100,
+   "binoculars": 1.0546804254979012,
+   "classifier": 0.21544070541858673
+  },
+  {
+   "src": "open_qa#85",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 145,
+   "binoculars": 0.7111469639915998,
+   "classifier": 0.9990967512130737
+  },
+  {
+   "src": "open_qa#86",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 149,
+   "binoculars": 0.8226226181651383,
+   "classifier": 0.9996137022972107
+  },
+  {
+   "src": "open_qa#89",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 112,
+   "binoculars": 0.758759801170692,
+   "classifier": 0.9993489384651184
+  },
+  {
+   "src": "open_qa#90",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 228,
+   "binoculars": 0.854830896671033,
+   "classifier": 0.9998968839645386
+  },
+  {
+   "src": "open_qa#91",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 113,
+   "binoculars": 0.7475064043527008,
+   "classifier": 0.9904757142066956
+  },
+  {
+   "src": "open_qa#92",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 152,
+   "binoculars": 0.7200498388814273,
+   "classifier": 0.9978588223457336
+  },
+  {
+   "src": "open_qa#93",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 163,
+   "binoculars": 0.8808545919795401,
+   "classifier": 0.999603807926178
+  },
+  {
+   "src": "open_qa#94",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 110,
+   "binoculars": 0.848190578372572,
+   "classifier": 0.9984164237976074
+  },
+  {
+   "src": "open_qa#95",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 119,
+   "binoculars": 0.8515397448930989,
+   "classifier": 0.9996161460876465
+  },
+  {
+   "src": "open_qa#96",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 273,
+   "binoculars": 0.8630118444925188,
+   "classifier": 0.9999700784683228
+  },
+  {
+   "src": "open_qa#97",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 251,
+   "binoculars": 0.8810598247463942,
+   "classifier": 0.9999619722366333
+  },
+  {
+   "src": "open_qa#99",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 109,
+   "binoculars": 0.6791189880591728,
+   "classifier": 0.9991902709007263
+  },
+  {
+   "src": "open_qa#100",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 139,
+   "binoculars": 0.9214929162675743,
+   "classifier": 0.9999496936798096
+  },
+  {
+   "src": "open_qa#101",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 200,
+   "binoculars": 0.7853978541320846,
+   "classifier": 0.9973872303962708
+  },
+  {
+   "src": "open_qa#102",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 178,
+   "binoculars": 0.7562044136589094,
+   "classifier": 0.9998492002487183
+  },
+  {
+   "src": "open_qa#104",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 133,
+   "binoculars": 0.7957058531935273,
+   "classifier": 0.9996591806411743
+  },
+  {
+   "src": "open_qa#105",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 100,
+   "binoculars": 0.9147567312654364,
+   "classifier": 0.9996916055679321
+  },
+  {
+   "src": "open_qa#106",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 104,
+   "binoculars": 0.7902737961013157,
+   "classifier": 0.9965428709983826
+  },
+  {
+   "src": "open_qa#107",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 127,
+   "binoculars": 0.821998795197884,
+   "classifier": 0.9998342990875244
+  },
+  {
+   "src": "open_qa#108",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 233,
+   "binoculars": 0.8525254053790643,
+   "classifier": 0.999981164932251
+  },
+  {
+   "src": "open_qa#109",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 96,
+   "binoculars": 0.7742438648430041,
+   "classifier": 0.9991175532341003
+  },
+  {
+   "src": "open_qa#110",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 137,
+   "binoculars": 0.8339867548899279,
+   "classifier": 0.9937618374824524
+  },
+  {
+   "src": "open_qa#111",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 103,
+   "binoculars": 0.6212478714142426,
+   "classifier": 0.9996824264526367
+  },
+  {
+   "src": "open_qa#112",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 122,
+   "binoculars": 0.777548491330016,
+   "classifier": 0.9998798370361328
+  },
+  {
+   "src": "open_qa#113",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 92,
+   "binoculars": 0.6555232168653204,
+   "classifier": 0.9965050220489502
+  },
+  {
+   "src": "open_qa#114",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 135,
+   "binoculars": 0.7359578732342569,
+   "classifier": 0.9999784231185913
+  },
+  {
+   "src": "open_qa#115",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 89,
+   "binoculars": 0.8322762443495344,
+   "classifier": 0.9982978701591492
+  },
+  {
+   "src": "open_qa#116",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 118,
+   "binoculars": 0.6941840568939419,
+   "classifier": 0.906287431716919
+  },
+  {
+   "src": "open_qa#118",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 93,
+   "binoculars": 0.6780376091626655,
+   "classifier": 0.9925566911697388
+  },
+  {
+   "src": "open_qa#119",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 138,
+   "binoculars": 0.7702233043825444,
+   "classifier": 0.9988013505935669
+  },
+  {
+   "src": "open_qa#120",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 96,
+   "binoculars": 0.679360267001213,
+   "classifier": 0.9990062117576599
+  },
+  {
+   "src": "open_qa#121",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 98,
+   "binoculars": 0.718085323993442,
+   "classifier": 0.9987849593162537
+  },
+  {
+   "src": "open_qa#123",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 244,
+   "binoculars": 0.917342573701008,
+   "classifier": 0.9961662292480469
+  },
+  {
+   "src": "open_qa#124",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 98,
+   "binoculars": 0.6956642244252425,
+   "classifier": 0.9998319149017334
+  },
+  {
+   "src": "open_qa#125",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 156,
+   "binoculars": 0.8294637454441444,
+   "classifier": 0.9999568462371826
+  },
+  {
+   "src": "open_qa#126",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 97,
+   "binoculars": 0.7773564187084275,
+   "classifier": 0.8902423977851868
+  },
+  {
+   "src": "open_qa#127",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 165,
+   "binoculars": 0.7440717666826303,
+   "classifier": 0.9999384880065918
+  },
+  {
+   "src": "open_qa#129",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 93,
+   "binoculars": 0.6597382109196603,
+   "classifier": 0.9290765523910522
+  },
+  {
+   "src": "open_qa#130",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 139,
+   "binoculars": 0.78055221202229,
+   "classifier": 0.9999027252197266
+  },
+  {
+   "src": "open_qa#131",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 124,
+   "binoculars": 0.7869139008671326,
+   "classifier": 0.5503655076026917
+  },
+  {
+   "src": "open_qa#132",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 93,
+   "binoculars": 0.7021528887042838,
+   "classifier": 0.9241160750389099
+  },
+  {
+   "src": "open_qa#133",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 170,
+   "binoculars": 0.8196938989063342,
+   "classifier": 0.9854350090026855
+  },
+  {
+   "src": "open_qa#134",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 126,
+   "binoculars": 0.8472911059840508,
+   "classifier": 0.9991474151611328
+  },
+  {
+   "src": "open_qa#136",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 177,
+   "binoculars": 0.8701625681562237,
+   "classifier": 0.999065101146698
+  },
+  {
+   "src": "open_qa#137",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 84,
+   "binoculars": 0.8276149519999096,
+   "classifier": 0.9996592998504639
+  },
+  {
+   "src": "open_qa#139",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 227,
+   "binoculars": 0.8801754090472923,
+   "classifier": 0.9999768733978271
+  },
+  {
+   "src": "open_qa#140",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 84,
+   "binoculars": 0.714069354094838,
+   "classifier": 0.9890040755271912
+  },
+  {
+   "src": "open_qa#141",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 117,
+   "binoculars": 0.7698340989061208,
+   "classifier": 0.9997974038124084
+  },
+  {
+   "src": "open_qa#142",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 185,
+   "binoculars": 0.8611207594965629,
+   "classifier": 0.9999465942382812
+  },
+  {
+   "src": "open_qa#144",
+   "set": "HC3-open_qa",
+   "label": "human",
+   "words": 80,
+   "binoculars": 1.0068600486144916,
+   "classifier": 0.03135715425014496
+  },
+  {
+   "src": "open_qa#144",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 131,
+   "binoculars": 0.7926539253475675,
+   "classifier": 0.9979058504104614
+  },
+  {
+   "src": "open_qa#145",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 187,
+   "binoculars": 0.9238791268616502,
+   "classifier": 0.9999499320983887
+  },
+  {
+   "src": "open_qa#146",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 213,
+   "binoculars": 0.8338778211474807,
+   "classifier": 0.9998070597648621
+  },
+  {
+   "src": "open_qa#147",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 93,
+   "binoculars": 0.659907325556745,
+   "classifier": 0.9999344348907471
+  },
+  {
+   "src": "open_qa#148",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 216,
+   "binoculars": 0.724002306400985,
+   "classifier": 0.9990317821502686
+  },
+  {
+   "src": "open_qa#150",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 93,
+   "binoculars": 0.7365050846253668,
+   "classifier": 0.9991772770881653
+  },
+  {
+   "src": "open_qa#151",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 125,
+   "binoculars": 0.7660946623611542,
+   "classifier": 0.9999123811721802
+  },
+  {
+   "src": "open_qa#152",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 210,
+   "binoculars": 0.8041687688685026,
+   "classifier": 0.9997068047523499
+  },
+  {
+   "src": "open_qa#153",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 259,
+   "binoculars": 0.7927416744508481,
+   "classifier": 0.9999865293502808
+  },
+  {
+   "src": "open_qa#154",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 163,
+   "binoculars": 0.6918826023295129,
+   "classifier": 0.9999591112136841
+  },
+  {
+   "src": "open_qa#155",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 89,
+   "binoculars": 0.7062218868126716,
+   "classifier": 0.9982171654701233
+  },
+  {
+   "src": "open_qa#156",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 282,
+   "binoculars": 0.9338379339664691,
+   "classifier": 0.9999006986618042
+  },
+  {
+   "src": "open_qa#157",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 93,
+   "binoculars": 0.7068554243736891,
+   "classifier": 0.9981474876403809
+  },
+  {
+   "src": "open_qa#158",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 179,
+   "binoculars": 0.8036841548073071,
+   "classifier": 0.9977719187736511
+  },
+  {
+   "src": "open_qa#159",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 144,
+   "binoculars": 0.809693090896745,
+   "classifier": 0.9999397993087769
+  },
+  {
+   "src": "open_qa#161",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 314,
+   "binoculars": 1.021548216399409,
+   "classifier": 0.9998886585235596
+  },
+  {
+   "src": "open_qa#164",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 179,
+   "binoculars": 0.9185371066094846,
+   "classifier": 0.999519944190979
+  },
+  {
+   "src": "open_qa#165",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 208,
+   "binoculars": 0.7614202993329978,
+   "classifier": 0.9998973608016968
+  },
+  {
+   "src": "open_qa#166",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 107,
+   "binoculars": 0.7262193943319583,
+   "classifier": 0.9966147541999817
+  },
+  {
+   "src": "open_qa#167",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 254,
+   "binoculars": 0.9205150753194448,
+   "classifier": 0.9997714161872864
+  },
+  {
+   "src": "open_qa#168",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 176,
+   "binoculars": 0.8332478910132981,
+   "classifier": 0.9998868703842163
+  },
+  {
+   "src": "open_qa#169",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 81,
+   "binoculars": 0.657703851201791,
+   "classifier": 0.9998859167098999
+  },
+  {
+   "src": "open_qa#171",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 172,
+   "binoculars": 0.9267630881895265,
+   "classifier": 0.9999265670776367
+  },
+  {
+   "src": "open_qa#173",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 111,
+   "binoculars": 0.7519136784390744,
+   "classifier": 0.9958912134170532
+  },
+  {
+   "src": "open_qa#174",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 81,
+   "binoculars": 0.6107085806487316,
+   "classifier": 0.9993662238121033
+  },
+  {
+   "src": "open_qa#175",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 84,
+   "binoculars": 0.9171245368079314,
+   "classifier": 0.9986584186553955
+  },
+  {
+   "src": "open_qa#176",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 239,
+   "binoculars": 0.7933767322178121,
+   "classifier": 0.9999568462371826
+  },
+  {
+   "src": "open_qa#178",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 112,
+   "binoculars": 0.694375522767553,
+   "classifier": 0.997829020023346
+  },
+  {
+   "src": "open_qa#180",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 112,
+   "binoculars": 0.8440804578961298,
+   "classifier": 0.9987665414810181
+  },
+  {
+   "src": "open_qa#181",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 95,
+   "binoculars": 0.7577829330563481,
+   "classifier": 0.9971218705177307
+  },
+  {
+   "src": "open_qa#182",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 211,
+   "binoculars": 0.7546424397726496,
+   "classifier": 0.9988881945610046
+  },
+  {
+   "src": "open_qa#184",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 217,
+   "binoculars": 0.7662245246064883,
+   "classifier": 0.9998192191123962
+  },
+  {
+   "src": "open_qa#185",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 106,
+   "binoculars": 0.7058427906425249,
+   "classifier": 0.9585654139518738
+  },
+  {
+   "src": "open_qa#186",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 171,
+   "binoculars": 0.7358421753225265,
+   "classifier": 0.9997878670692444
+  },
+  {
+   "src": "open_qa#187",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 106,
+   "binoculars": 0.7143389912228154,
+   "classifier": 0.999812662601471
+  },
+  {
+   "src": "open_qa#189",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 134,
+   "binoculars": 0.8931552338170302,
+   "classifier": 0.9651817679405212
+  },
+  {
+   "src": "open_qa#190",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 176,
+   "binoculars": 0.7095028873386685,
+   "classifier": 0.9999425411224365
+  },
+  {
+   "src": "open_qa#191",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 89,
+   "binoculars": 0.6747970535986525,
+   "classifier": 0.9980406165122986
+  },
+  {
+   "src": "open_qa#192",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 210,
+   "binoculars": 0.8107061048537757,
+   "classifier": 0.9999529123306274
+  },
+  {
+   "src": "open_qa#193",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 168,
+   "binoculars": 0.938938878482909,
+   "classifier": 0.9977994561195374
+  },
+  {
+   "src": "open_qa#194",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 84,
+   "binoculars": 0.8458796424834832,
+   "classifier": 0.80894535779953
+  },
+  {
+   "src": "open_qa#195",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 106,
+   "binoculars": 0.7451613437932698,
+   "classifier": 0.9997507929801941
+  },
+  {
+   "src": "open_qa#196",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 95,
+   "binoculars": 0.876990476573909,
+   "classifier": 0.9990795850753784
+  },
+  {
+   "src": "open_qa#198",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 82,
+   "binoculars": 0.6706912319713353,
+   "classifier": 0.9992314577102661
+  },
+  {
+   "src": "open_qa#199",
+   "set": "HC3-open_qa",
+   "label": "ai",
+   "words": 103,
+   "binoculars": 0.8233475786331693,
+   "classifier": 0.997975766658783
+  },
+  {
+   "src": "claude#0",
+   "set": "newer-AI (Claude, business style)",
+   "label": "ai",
+   "words": 144,
+   "binoculars": 1.06541914651129,
+   "classifier": 0.8807990550994873
+  },
+  {
+   "src": "claude#1",
+   "set": "newer-AI (Claude, business style)",
+   "label": "ai",
+   "words": 137,
+   "binoculars": 1.0965977791206214,
+   "classifier": 0.1642650067806244
+  },
+  {
+   "src": "claude#2",
+   "set": "newer-AI (Claude, business style)",
+   "label": "ai",
+   "words": 138,
+   "binoculars": 1.0593834914299902,
+   "classifier": 0.9993921518325806
+  },
+  {
+   "src": "claude#3",
+   "set": "newer-AI (Claude, business style)",
+   "label": "ai",
+   "words": 129,
+   "binoculars": 0.9972291047170198,
+   "classifier": 0.16437497735023499
+  },
+  {
+   "src": "claude#4",
+   "set": "newer-AI (Claude, business style)",
+   "label": "ai",
+   "words": 139,
+   "binoculars": 1.0095232878170575,
+   "classifier": 0.9922164678573608
+  },
+  {
+   "src": "claude#5",
+   "set": "newer-AI (Claude, business style)",
+   "label": "ai",
+   "words": 124,
+   "binoculars": 1.1009945573114595,
+   "classifier": 0.9993671774864197
+  },
+  {
+   "src": "claude#6",
+   "set": "newer-AI (Claude, business style)",
+   "label": "ai",
+   "words": 131,
+   "binoculars": 1.0428660579543756,
+   "classifier": 0.4254530370235443
+  },
+  {
+   "src": "claude#7",
+   "set": "newer-AI (Claude, business style)",
+   "label": "ai",
+   "words": 136,
+   "binoculars": 0.831729653482855,
+   "classifier": 0.870338499546051
+  },
+  {
+   "src": "claude#8",
+   "set": "newer-AI (Claude, business style)",
+   "label": "ai",
+   "words": 133,
+   "binoculars": 0.8827701452100893,
+   "classifier": 0.9645838737487793
+  },
+  {
+   "src": "claude#9",
+   "set": "newer-AI (Claude, business style)",
+   "label": "ai",
+   "words": 127,
+   "binoculars": 1.1081416353589335,
+   "classifier": 0.9122543931007385
+  },
+  {
+   "src": "claude#10",
+   "set": "newer-AI (Claude, business style)",
+   "label": "ai",
+   "words": 132,
+   "binoculars": 0.9904988044226145,
+   "classifier": 0.7930678129196167
+  },
+  {
+   "src": "claude#11",
+   "set": "newer-AI (Claude, business style)",
+   "label": "ai",
+   "words": 129,
+   "binoculars": 0.9179310790067731,
+   "classifier": 0.5744560360908508
+  },
+  {
+   "src": "claude#12",
+   "set": "newer-AI (Claude, business style)",
+   "label": "ai",
+   "words": 135,
+   "binoculars": 0.9845683788995229,
+   "classifier": 0.9834246039390564
+  },
+  {
+   "src": "claude#13",
+   "set": "newer-AI (Claude, business style)",
+   "label": "ai",
+   "words": 130,
+   "binoculars": 0.9884472757937959,
+   "classifier": 0.9856770038604736
+  },
+  {
+   "src": "claude#14",
+   "set": "newer-AI (Claude, business style)",
+   "label": "ai",
+   "words": 132,
+   "binoculars": 1.0777953244095202,
+   "classifier": 0.8052175045013428
+  },
+  {
+   "src": "claude#15",
+   "set": "newer-AI (Claude, business style)",
+   "label": "ai",
+   "words": 139,
+   "binoculars": 0.9210548239809383,
+   "classifier": 0.8927710652351379
+  }
+ ]
+}

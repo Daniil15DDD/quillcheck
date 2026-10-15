@@ -1,0 +1,11 @@
+[server]
+address = "127.0.0.1"
+port = 8502
+headless = true
+# The watcher walks every imported module, including transformers' optional vision
+# modules, and logs a traceback for each missing torchvision import. Not needed here.
+fileWatcherType = "none"
+
+[browser]
+gatherUsageStats = false
+serverAddress = "127.0.0.1"
