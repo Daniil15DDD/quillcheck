@@ -34,9 +34,9 @@ _model_lock = threading.Lock()  # one model task at a time keeps memory use flat
 
 def scan(text: str) -> dict:
     result = worker.call("detector", "analyse", {"text": text, "detailed": True})
-    # Same relative highlighting as the Check tab: the most machine-like quarter *within this text*.
+    # Same highlighting rule as the Check tab: only sentences in AI-looking paragraphs.
     scored = sorted(s.binoculars for s in result.sentences if s.binoculars is not None)
-    cutoff = scored[len(scored) // 4] if len(scored) >= 4 else None
+    flags = likelihood.flag_sentences(result)
     rank = {v: i + 1 for i, v in reversed(list(enumerate(scored)))}
     sentences = []
     for s in result.sentences:
@@ -47,7 +47,7 @@ def scan(text: str) -> dict:
             "text": s.text,
             "binoculars": s.binoculars,
             "rank": rank.get(s.binoculars) if s.binoculars is not None else None,
-            "flagged": cutoff is not None and s.binoculars is not None and s.binoculars <= cutoff,
+            "flagged": s.index in flags,
         })
     context = calibration.binoculars_context(result.binoculars) if result.binoculars is not None else None
     reading = likelihood.reading(result.classifier)

@@ -147,7 +147,7 @@ function scan() {
     $("flagged").hidden = !marked.length;
     let msg = marked.length
       ? `Marked ${marked.length} sentence${marked.length === 1 ? "" : "s"} in yellow.`
-      : result.scored < 4 ? "Too few scorable sentences to rank. Try a longer text." : "Nothing to mark.";
+      : "Nothing stands out: no paragraph looked AI-generated, so no sentences are marked.";
     if (missing) msg += ` ${missing} couldn't be located in the document (special formatting or line breaks).`;
     setStatus(msg);
   });
@@ -184,7 +184,7 @@ function addCard(ccId, s, scored) {
   sentence.title = "Show in document";
   const meta = document.createElement("div");
   meta.className = "meta";
-  meta.textContent = `Number ${s.rank} of ${scored} most AI-like sentences in this text. A ranking, not a verdict on this sentence.`;
+  meta.textContent = `Ranked ${s.rank} of ${scored} sentences in this text for machine-likeness (1 = most). A ranking, not a verdict on this sentence.`;
   const actions = document.createElement("div");
   actions.className = "actions row";
   const btn = document.createElement("button");

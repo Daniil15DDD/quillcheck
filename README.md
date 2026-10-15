@@ -45,7 +45,7 @@
 <td width="33%" valign="top">
 
 ### 🔍 Check
-An overall estimate from two independent local models, the most machine-like sentences highlighted *relative to the rest of your text*, and a per-paragraph breakdown. Paste text or upload a `.docx`/`.txt`.
+An overall AI-likelihood estimate, yellow marks on the sentences to reread in paragraphs that look AI-generated, and a per-paragraph breakdown. A text rated "Leans human-written" gets no marks, so the marks never contradict the score. Paste text or upload a `.docx`/`.txt`.
 
 </td>
 <td width="33%" valign="top">
@@ -143,9 +143,9 @@ It's useful as a second opinion, not as proof. On held-out tests, the classifier
 </details>
 
 <details>
-<summary><strong>Why are some of my own sentences highlighted?</strong></summary>
+<summary><strong>Which sentences get highlighted?</strong></summary>
 
-Highlights are relative: every text has a "most machine-like quarter", even one written entirely by a person. A yellow sentence is a reason to reread it, not a verdict.
+Only sentences in paragraphs the classifier rates 50%+ likely AI-generated, and within those the more machine-like half. If the whole text is rated "Leans human-written" (under 30%), nothing is marked. Short paragraphs are noisier than whole texts, so a yellow sentence is a reason to reread it, not a verdict.
 </details>
 
 <details>

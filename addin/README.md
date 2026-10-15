@@ -1,8 +1,8 @@
 # QuillCheck Word add-in
 
-A side panel for Word (web and Mac desktop) that uses this app's local models. It marks the
-quarter of sentences that score most AI-like *within your document*, and for each one you can
-get a local rewrite suggestion and choose Replace or Skip. Everything runs on this Mac.
+A side panel for Word (web and Mac desktop) that uses this app's local models. It marks
+sentences to reread in paragraphs that look AI-generated, and for each one you can get a local
+rewrite suggestion and choose Replace or Skip. Everything runs on this Mac.
 
 ## One-time setup
 
@@ -45,8 +45,9 @@ Run `addin/run_addin.sh` and keep it running, then click **Check text** in Word.
 
 ## Things to know
 
-- Marks are relative. Every text has a "most AI-like quarter", even one you wrote yourself.
-  Scores for single sentences are noisy. In testing, plainly human sentences were marked.
+- Marks follow the headline score. A document rated "Leans human-written" (under 30%) gets no
+  marks. Otherwise only paragraphs rated 50%+ are marked, and within those the more machine-like
+  half of the sentences. Short paragraphs are noisy, so a mark is a reason to reread, not a verdict.
 - Removing a mark also removes any yellow highlight you had added yourself on that sentence.
 - Sentences with soft line breaks or unusual formatting sometimes can't be located. The panel
   says how many.

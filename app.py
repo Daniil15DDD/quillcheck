@@ -73,9 +73,9 @@ def run_in_worker(label: str, call):
 
 
 def sentence_view(result: detector.Result) -> str:
-    """Highlight the quarter of sentences that look most machine-like *within this text*."""
+    """Highlight sentences in AI-looking paragraphs (see likelihood.flag_sentences)."""
     scored = sorted(s.binoculars for s in result.sentences if s.binoculars is not None)
-    cutoff = scored[len(scored) // 4] if len(scored) >= 4 else None
+    flags = likelihood.flag_sentences(result)
     rank = {v: i + 1 for i, v in reversed(list(enumerate(scored)))}
     parts, last_paragraph = [], 0
     for s in result.sentences:
@@ -88,7 +88,7 @@ def sentence_view(result: detector.Result) -> str:
             parts.append(f'<span style="opacity:.6" title="too short to score">{body}</span> ')
         else:
             tip = f"Relative rank {rank[s.binoculars]} of {len(scored)} in this text (1 = most AI-like here). Raw Binoculars {s.binoculars:.3f}. Not a probability."
-            if cutoff is not None and s.binoculars <= cutoff:
+            if s.index in flags:
                 parts.append(f'<mark style="background:#f6d365;color:#000;border-radius:3px" title="{tip}">{body}</mark> ')
             else:
                 parts.append(f'<span title="{tip}">{body}</span> ')
@@ -211,12 +211,13 @@ with check:
                     "(only whitespace between paragraphs can be skipped). No text was truncated."
                 )
 
-        st.subheader("Sentences — relative highlights")
+        st.subheader("Sentences")
         st.caption(
-            "Yellow marks the quarter of sentences with the lowest Binoculars scores **relative to the other sentences in this same text**. "
-            "Every text with 4+ scored sentences has a yellow quarter, even fully human writing. "
-            "This is a ranking, **not** a probability that a sentence was AI-written. Hover for the rank. Faded = too short to score."
+            likelihood.HIGHLIGHT_NOTE + " Single-sentence scores are noisy, so a mark is a reason to reread, "
+            "**not** a verdict. Hover for the rank. Faded = too short to score."
         )
+        if not likelihood.flag_sentences(result):
+            st.success("Nothing stands out: no paragraph looked AI-generated, so no sentences are marked.")
         st.markdown(sentence_view(result), unsafe_allow_html=True)
 
         st.subheader("Paragraphs")

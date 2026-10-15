@@ -35,11 +35,12 @@
 
 <section id="flagged" hidden>
   <div class="row between">
-    <h2>Most AI-like sentences <span class="muted">(within this text)</span></h2>
+    <h2>Sentences to reread</h2>
     <button id="suggestAll">Suggest all</button>
   </div>
-  <p class="note">Yellow marks the quarter of sentences that score most machine-like <em>relative to the rest of this text</em>.
-    Every text has a top quarter, so a mark is not a verdict. Single-sentence scores are noisy.</p>
+  <p class="note">Yellow marks sentences only inside paragraphs the classifier rates 50%+ likely AI-generated, and within those
+    the more machine-like half. Nothing is marked when the whole text leans human-written. Single-sentence scores are noisy,
+    so a mark is a reason to reread, not a verdict.</p>
   <p class="note warn"><strong>AI-assisted editing: review every change.</strong> A small local model writes the suggestions and can change
     meaning. It is not designed or tested to change detector results. Follow your university's rules on AI use.</p>
   <ol id="cards"></ol>
