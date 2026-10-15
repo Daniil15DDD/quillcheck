@@ -2,11 +2,11 @@
 
 <img src="docs/assets/banner.svg" alt="QuillCheck: a private second read for your writing" width="100%">
 
-### Check your writing for AI-sounding passages and tidy them up, without your text ever leaving your computer.
+### Check your writing for AI-sounding passages and tidy them up. The checking runs on your own computer, and QuillCheck never sends your text anywhere.
 
 <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-4338ca?style=flat-square" alt="MIT licence"></a>
 <img src="https://img.shields.io/badge/python-3.12-4338ca?style=flat-square&logo=python&logoColor=white" alt="Python 3.12">
-<img src="https://img.shields.io/badge/runs-100%25_offline-22c55e?style=flat-square" alt="Runs 100% offline">
+<img src="https://img.shields.io/badge/runs-locally-22c55e?style=flat-square" alt="Runs locally">
 <img src="https://img.shields.io/badge/cost-free-22c55e?style=flat-square" alt="Free">
 <img src="https://img.shields.io/badge/Word-add--in-185abd?style=flat-square&logo=microsoftword&logoColor=white" alt="Word add-in">
 <a href="https://github.com/Daniil15DDD/quillcheck/stargazers"><img src="https://img.shields.io/github/stars/Daniil15DDD/quillcheck?style=flat-square&color=f0a63c" alt="GitHub stars"></a>
@@ -32,7 +32,7 @@
 | :--- | :--- | :--- |
 | Where your text goes | Uploaded to someone's server | **Stays on your computer** |
 | Cost | Free tier, then a subscription | **Free, no account** |
-| Works offline | No | **Yes**, after a one-time model download |
+| Works offline | No | **Yes** for the app, after a one-time model download. The Word panel needs internet because Word loads Microsoft's `office.js` |
 | Shows *which* sentences | Sometimes | **Yes**, ranked within your text |
 | Helps you fix them | Usually not | **Yes**, local edit suggestions with a word-level diff |
 | Inside Word | Rarely | **Yes**, side panel for Word on Mac and on the web |
@@ -84,7 +84,10 @@ Use QuillCheck **while you write** in Microsoft Word (Mac desktop or Word on the
 - **Selected text only** checks just the part you're working on.
 - **Clear marks** removes every highlight and leaves your words alone.
 
-The panel talks only to a small server on `localhost`, so your document still never leaves your machine.
+The panel sends your text only to the QuillCheck server on your own computer (`localhost`). Two things to know:
+
+- When the panel opens, Word downloads Microsoft's `office.js` from the web, as it does for every Word add-in. So the panel needs an internet connection. Your text isn't sent there.
+- With Word on the web, your document is stored in Microsoft's cloud as usual. QuillCheck only adds local checking.
 
 **[Set up the Word add-in →](addin/README.md)**
 
@@ -103,7 +106,7 @@ cd quillcheck
 ./run.sh       # then open http://127.0.0.1:8502
 ```
 
-`setup.sh` is the only step that uses the internet. After that, QuillCheck runs with Hugging Face offline mode on and only listens on your own machine.
+Setup is the only time the app needs the internet. `setup.sh` downloads the models, and the Word add-in's one-time certificate step (`npx office-addin-dev-certs install`) downloads Microsoft's certificate tool. After that, the app runs with Hugging Face offline mode forced on, can only load models already on your computer, and only listens on your own machine.
 
 ## How it works
 
@@ -148,7 +151,11 @@ Highlights are relative: every text has a "most machine-like quarter", even one 
 <details>
 <summary><strong>Does it send my text anywhere or cost anything?</strong></summary>
 
-No. After `setup.sh` downloads the models, everything runs on your computer with no account, API key or subscription. The validation report includes a sandbox test confirming zero outbound connections.
+QuillCheck never sends your text anywhere, and it costs nothing: no account, API key or subscription. The models run on your computer.
+
+The Streamlit app was tested in a macOS sandbox that blocks the internet and logs every connection attempt. A full check and the full interface test suite made zero network attempts (see [VALIDATION.md](VALIDATION.md#2-offline-operation)).
+
+The Word add-in server uses the same offline-locked model code, but it hasn't been through that sandbox test yet. The Word panel itself needs internet, because Word loads Microsoft's `office.js` when it opens.
 </details>
 
 <details>

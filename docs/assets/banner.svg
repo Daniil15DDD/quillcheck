@@ -31,8 +31,8 @@
     <text x="424" y="222" font-size="30" font-weight="500" fill="#c7d2fe">A private second read for your writing.</text>
     <text x="424" y="270" font-size="22" fill="#a5b4fc">Local AI-text estimates · sentence highlights · AI-assisted edits · Word add-in</text>
     <g transform="translate(424 296)">
-      <rect width="222" height="34" rx="17" fill="#22c55e" fill-opacity=".16" stroke="#22c55e" stroke-opacity=".6"/>
-      <text x="111" y="23" font-size="17" font-weight="600" fill="#86efac" text-anchor="middle">100% offline · free</text>
+      <rect width="250" height="34" rx="17" fill="#22c55e" fill-opacity=".16" stroke="#22c55e" stroke-opacity=".6"/>
+      <text x="125" y="23" font-size="17" font-weight="600" fill="#86efac" text-anchor="middle">runs locally · free</text>
     </g>
   </g>
 </svg>
