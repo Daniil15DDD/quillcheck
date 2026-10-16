@@ -45,7 +45,7 @@
 <td width="33%" valign="top">
 
 ### 🔍 Check
-An overall AI-likelihood estimate, yellow marks on the sentences to reread in paragraphs that look AI-generated, and a per-paragraph breakdown. A text rated "Leans human-written" still shows up to 3 of its most machine-like sentences (never more than a quarter of them), so you can see what stands out most. Paste text or upload a `.docx`/`.txt`.
+An overall AI-likelihood estimate, yellow marks on the sentences to reread in paragraphs that look AI-generated, and a per-paragraph breakdown. A text rated "Leans human-written" still shows up to 3 of its most machine-like sentences (never more than a quarter of them), so you can see what stands out most. Titles, headings and reference lists are left out of the score, as GPTZero does with headers. Paste text or upload a `.docx`/`.txt`.
 
 </td>
 <td width="33%" valign="top">

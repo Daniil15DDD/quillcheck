@@ -72,6 +72,43 @@ class Result:
     sentences: list[Span] = field(default_factory=list)
     warnings: list[str] = field(default_factory=list)
     coverage: dict = field(default_factory=dict)
+    skipped: list[tuple[int, int]] = field(default_factory=list)  # headings / reference lists, not scored
+
+
+HEADING_MAX_WORDS = 12
+_REFERENCES = re.compile(r"(references?|reference list|bibliography|works cited)\s*:?", re.I)
+
+
+def skipped_ranges(text: str) -> list[tuple[int, int]]:
+    """Character ranges left out of scoring, as GPTZero does with headers: heading-like lines (short,
+    not ending like a sentence) and everything from a "References"/"Bibliography" heading on.
+    shortcut: short list items without a full stop count as headings too; fine for prose documents."""
+    out, pos = [], 0
+    for line in text.splitlines(keepends=True):
+        s, t = pos, line.strip()
+        pos += len(line)
+        if not t:
+            continue
+        if _REFERENCES.fullmatch(t):
+            out.append((s, len(text)))
+            break
+        if len(t.split()) < HEADING_MAX_WORDS and t[-1] not in ".!?:;\"”'’)":
+            out.append((s, s + len(line.rstrip("\r\n"))))
+    return out
+
+
+def _kept(s: int, e: int, skip: list[tuple[int, int]]) -> list[tuple[int, int]]:
+    """Parts of [s, e) outside the skipped ranges."""
+    parts, cur = [], s
+    for a, b in skip:
+        if b <= cur or a >= e:
+            continue
+        if a > cur:
+            parts.append((cur, a))
+        cur = max(cur, b)
+    if cur < e:
+        parts.append((cur, e))
+    return parts
 
 
 def _strip(text: str, s: int, e: int):
@@ -145,6 +182,14 @@ class Binoculars:
 
 def _ratio(ppl, xppl, starts, s: int, e: int, min_tokens: int) -> float | None:
     picked = [i for i, c in enumerate(starts) if s <= c < e]
+    if len(picked) < min_tokens:
+        return None
+    return sum(ppl[i] for i in picked) / sum(xppl[i] for i in picked)
+
+
+def _ratio_in(ppl, xppl, starts, ranges: list[tuple[int, int]], min_tokens: int) -> float | None:
+    """Binoculars ratio over the tokens that start inside any of the ranges."""
+    picked = [i for i, c in enumerate(starts) if any(s <= c < e for s, e in ranges)]
     if len(picked) < min_tokens:
         return None
     return sum(ppl[i] for i in picked) / sum(xppl[i] for i in picked)
@@ -236,23 +281,36 @@ def analyse(text: str, detailed: bool = True, progress: Callable[[str], None] = 
         ppl, xppl, starts = bino.token_scores(text)
     finally:
         bino.close()
-    result.binoculars = _ratio(ppl, xppl, starts, 0, len(text), 1)
+    # Headings and reference lists are read in context but left out of every score.
+    skip = skipped_ranges(text)
+    segs = [Span(p.index, a, b, text[a:b]) for p in paragraphs for k in _kept(p.start, p.end, skip) for a, b in _strip(text, *k)]
+    if not segs:  # nothing but headings: score everything rather than nothing
+        skip, segs = [], [Span(p.index, p.start, p.end, p.text) for p in paragraphs]
+    result.skipped = skip
+    in_skip = lambda c: any(a <= c < b for a, b in skip)  # noqa: E731
+    result.binoculars = _ratio_in(ppl, xppl, starts, [(s.start, s.end) for s in segs], 1)
     result.coverage.update(
         binoculars_tokens=len(ppl) + 1 if ppl else 0,
         binoculars_windows=math.ceil(len(ppl) / (WINDOW_TOKENS - 1)) if ppl else 0,
     )
     if detailed:
-        for span in paragraphs + sentences:
-            span.binoculars = _ratio(ppl, xppl, starts, span.start, span.end, MIN_SPAN_TOKENS)
+        for p in paragraphs:
+            p.binoculars = _ratio_in(ppl, xppl, starts, [(s.start, s.end) for s in segs if s.index == p.index], MIN_SPAN_TOKENS)
+        for s in sentences:
+            s.binoculars = None if in_skip(s.start) else _ratio(ppl, xppl, starts, s.start, s.end, MIN_SPAN_TOKENS)
 
     progress("Loading classifier (desklib DeBERTa-v3-large)…")
     clf = Classifier()
     try:
         progress("Scoring with classifier…")
-        result.classifier, scored, total, windows = clf.score_document(text, paragraphs, detailed)
+        result.classifier, scored, total, windows = clf.score_document(text, segs, detailed)
         result.coverage.update(classifier_tokens=scored, classifier_total=total, classifier_windows=windows)
     finally:
         clf.close()
+    if detailed:  # a paragraph split by a heading line gets the word-weighted mean of its parts
+        for p in paragraphs:
+            parts = [(len(s.text.split()), s.classifier) for s in segs if s.index == p.index and s.classifier is not None]
+            p.classifier = sum(n * c for n, c in parts) / sum(n for n, _ in parts) if parts else None
     return result
 
 

@@ -156,7 +156,9 @@ def sentence_view(result: detector.Result) -> str:
             last_paragraph = paragraph
         body = html.escape(s.text)
         if s.binoculars is None:
-            parts.append(f'<span class="qc-faded" title="too short to score">{body}</span> ')
+            why = ("heading or reference list: left out of the score" if any(a <= s.start < b for a, b in result.skipped)
+                   else "too short to score")
+            parts.append(f'<span class="qc-faded" title="{why}">{body}</span> ')
         else:
             tip = f"Relative rank {rank[s.binoculars]} of {len(scored)} in this text (1 = most AI-like here). Raw Binoculars {s.binoculars:.3f}. Not a probability."
             if s.index in flags:
@@ -307,7 +309,8 @@ with check:
             with sent_tab:
                 st.html(top_sentences(result))
                 st.caption(likelihood.HIGHLIGHT_NOTE + " Single-sentence scores are noisy, so a mark is a reason to reread, **not** a verdict. "
-                           "Hover a sentence in your text for its rank; faded text was too short to score.")
+                           "Hover a sentence in your text for its rank. Faded text is a heading or reference list (left out of the score, "
+                           "like GPTZero does) or too short to score.")
             with para_tab:
                 st.dataframe(
                     [
