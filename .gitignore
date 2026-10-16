@@ -17,3 +17,6 @@ calibration.json
 
 # Downloaded public datasets for evaluation (not redistributed)
 validation/data/
+
+# Locally fine-tuned model weights (large; not committed)
+models/

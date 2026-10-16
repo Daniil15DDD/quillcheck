@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import json
 import random
+import re
 from pathlib import Path
 
 import pandas as pd
@@ -28,9 +29,27 @@ def keep(text: str) -> bool:
     return isinstance(text, str) and MIN_WORDS <= len(text.split()) <= MAX_WORDS
 
 
+_DETOK = [(re.compile(r" n't\b"), "n't"), (re.compile(r" ([,.;:!?%)\]])"), r"\1"), (re.compile(r"([(\[$]) "), r"\1"),
+           (re.compile(r" (['’](?:s|re|ve|ll|d|m)\b)"), r"\1"), (re.compile(r"``|''"), '"'), (re.compile(r"[ \t]+"), " "),
+           (re.compile(r"\n{3,}"), "\n\n")]
+
+
+def clean(text: str) -> str:
+    """Undo tokenisation artefacts (`do n't`, `word ,`). They appear far more in the human texts of
+    these datasets, so a model trained on them would learn spacing, not writing."""
+    for pat, rep in _DETOK:
+        text = pat.sub(rep, text)
+    return text.strip()
+
+
+used: set[str] = set()
+
+
 def add(source: str, group: str, label: str, text: str, split: str) -> None:
+    text = clean(text)
+    used.add(text)
     rows.append({"id": f"{source}-{len(rows)}", "source": source, "group": group, "label": label,
-                 "split": split, "words": len(text.split()), "text": text.strip()})
+                 "split": split, "words": len(text.split()), "text": text})
 
 
 def sample(df: pd.DataFrame, n: int) -> pd.DataFrame:
@@ -61,6 +80,8 @@ for name in ("medicine", "wiki_csai"):
     for q, split in halves(qs[:40]):
         add("hc3", name, "human", next(a for a in q["human_answers"] if keep(a)), split)
         add("hc3", name, "ai", next(a for a in q["chatgpt_answers"] if keep(a)), split)
+    hc3_rest = globals().setdefault("hc3_rest", [])
+    hc3_rest += [(name, q) for q in qs[40:240]]  # never in a test split: used only for fine-tuning
 
 # DAIGT student essays: 150 human (PERSUADE corpus) + 150 AI across generators.
 daigt = pd.read_parquet(D / "kaggle-comp-daigt/data/train-00000-of-00001.parquet", columns=["text", "label", "source"])
@@ -81,6 +102,20 @@ for _, r in sample(para, 100).iterrows():
     add("mage_gpt4_para", r.src.split("_")[0], "ai", r.text, "test_ood")
 for item in json.load(open(Path(__file__).with_name("modern_ai.json"))):
     add("newer_model", "business", "ai", item["text"], "test_ood")
+
+# Extra fine-tuning pool ("train_extra"). Built last, so every text already placed in a test split is excluded.
+# MAGE's GPT-4 files stay out of training entirely; they are the out-of-domain test.
+for name, q in hc3_rest:
+    add("hc3", name, "human", next(a for a in q["human_answers"] if keep(a)), "train_extra")
+    add("hc3", name, "ai", next(a for a in q["chatgpt_answers"] if keep(a)), "train_extra")
+fresh = lambda df: df[~df.text.map(clean).isin(used)]  # noqa: E731
+for df, label in ((sample(fresh(mage[mage.label == 1]), 400), "human"),
+                  (sample(fresh(mage[(mage.label == 0) & mage.src.str.lower().str.contains("|".join(STRONG))]), 400), "ai")):
+    for _, r in df.iterrows():
+        add("mage", r.src.split("_")[0], label, r.text, "train_extra")
+for df, label in ((sample(fresh(daigt[daigt.label == 0]), 500), "human"), (sample(fresh(daigt[daigt.label == 1]), 500), "ai")):
+    for _, r in df.iterrows():
+        add("daigt", r.source, label, r.text, "train_extra")
 
 with open(D / "evalset.jsonl", "w") as f:
     for r in rows:

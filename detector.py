@@ -37,8 +37,11 @@ from transformers import AutoConfig, AutoModel, AutoModelForCausalLM, AutoTokeni
 OBSERVER_ID = "Qwen/Qwen2.5-1.5B"
 PERFORMER_ID = "Qwen/Qwen2.5-1.5B-Instruct"
 CLASSIFIER_ID = "desklib/ai-text-detector-v1.01"
+_TUNED = os.path.join(os.path.dirname(os.path.abspath(__file__)), "models", "quillcheck-classifier")
+if os.path.exists(os.path.join(_TUNED, "config.json")):  # only saved by validation/finetune_classifier.py when it beat desklib
+    CLASSIFIER_ID = _TUNED
 
-DEVICE = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 WINDOW_TOKENS = 512  # Binoculars context window; longer texts are scored in consecutive windows
 LOGIT_SLICE = 128  # positions converted to float32 at a time when computing Binoculars terms
 CLASSIFIER_MAX_TOKENS = 768  # the classifier's training length, per its model card
@@ -101,6 +104,8 @@ def _free() -> None:
     gc.collect()
     if DEVICE.type == "mps":
         torch.mps.empty_cache()
+    elif DEVICE.type == "cuda":
+        torch.cuda.empty_cache()
 
 
 class Binoculars:
