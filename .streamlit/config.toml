@@ -12,3 +12,19 @@ toolbarMode = "minimal"  # no "Deploy" button; this app is local only
 [browser]
 gatherUsageStats = false
 serverAddress = "127.0.0.1"
+
+[theme]
+font = "sans-serif"
+baseRadius = "0.75rem"
+
+[theme.light]
+primaryColor = "#4338ca"
+backgroundColor = "#f3f4f8"
+secondaryBackgroundColor = "#ffffff"
+textColor = "#171a2b"
+
+[theme.dark]
+primaryColor = "#6366f1"
+backgroundColor = "#0e0f1c"
+secondaryBackgroundColor = "#181a2e"
+textColor = "#e8e9f3"
