@@ -7,6 +7,7 @@ os.environ["TRANSFORMERS_OFFLINE"] = "1"
 import base64
 import html
 import io
+import time
 from collections import Counter
 from pathlib import Path
 
@@ -105,6 +106,15 @@ def count_line(text: str) -> None:
     words = len(text.split())
     st.html(f'<span class="qc-count">{words:,} words · {len(text):,} characters'
             f'{" · 150+ words gives steadier results" if 0 < words < 150 else ""}</span>')
+
+
+def scroll_to(selector: str) -> None:
+    """Scroll the page to fresh results, so a finished run doesn't look like it's still working."""
+    # Waits up to 3 s for the results, then lets the layout settle; a smooth scroll gets cancelled while it grows.
+    # The run id keeps the frame unique, otherwise Streamlit reuses it and the script doesn't run again.
+    st.iframe(f"<script>/* {time.time_ns()} */ let n = 0; const t = setInterval(() => {{ const el = window.parent.document.querySelector({selector!r});"
+              f" if (el || ++n > 30) {{ clearInterval(t); setTimeout(() => el?.scrollIntoView({{block: 'start'}}), 600); }} }}, 100)</script>",
+              height=1)  # st.iframe rejects 0
 
 
 def run(text: str, detailed: bool) -> detector.Result | None:
@@ -253,6 +263,8 @@ with rewrite_tab:
     stored = st.session_state.get("rewrite_result")
     if stored and stored[0] == source and stored[1] == mode:
         rewrite_view(stored[2])
+        if go:
+            scroll_to(".qc-stats")
 
 with check:
     with st.container(border=True, key="check_card"):
@@ -272,6 +284,8 @@ with check:
         for warning in result.warnings:
             st.warning(warning)
         flags = likelihood.flag_sentences(result)
+        if go:
+            scroll_to(".st-key-check_text_card")
         left, right = st.columns([1.35, 1], gap="large")
         with left, st.container(border=True, key="check_text_card"):
             st.html('<div class="qc-card-head">Your text'

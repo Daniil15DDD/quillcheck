@@ -15,7 +15,6 @@ rm -rf "$APP"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
 
 # Icon: PNG for the running app's Dock tile, .icns for Finder.
-.venv/bin/python desktop/make_icon.py desktop/icon.png
 ICONSET="$(mktemp -d)/AppIcon.iconset"
 mkdir -p "$ICONSET"
 for s in 16 32 128 256 512; do
