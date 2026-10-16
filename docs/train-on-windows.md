@@ -1,6 +1,6 @@
 # Fine-tune the classifier on a Windows PC with an NVIDIA GPU
 
-Takes about 20–40 minutes on an RTX 3080. The new model is kept only if it beats the current one
+Takes about 45–60 minutes on an RTX 3080 (v2: about 10,000 training texts, including 2025–26 models and Claude). The new model is kept only if it beats the current one
 on held-out tests (rule in `validation/finetune_classifier.py`).
 
 ## 1. Install once

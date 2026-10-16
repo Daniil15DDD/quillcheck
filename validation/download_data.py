@@ -16,6 +16,19 @@ FILES = [
     ("Hello-SimpleAI/HC3", "medicine.jsonl"),  # CC BY-SA 4.0
     ("Hello-SimpleAI/HC3", "wiki_csai.jsonl"),
     ("Yunij/kaggle-comp-daigt", "data/train-00000-of-00001.parquet"),  # no licence stated: local evaluation only
+    # v2: current (2025-26) models
+    ("rasbt/human-vs-ai-50k", "data/train-00000-of-00001.parquet"),  # per-text CC BY / CC BY-SA / CC0
+    ("rasbt/human-vs-ai-50k", "data/test-00000-of-00001.parquet"),
+    ("mild-rgb/eli5-human-vs-ai", "train.jsonl"),  # CC BY 4.0; AI answers from 7 models
+    ("mild-rgb/eli5-human-vs-ai", "test.jsonl"),
+    ("SLoonker/RL-Claude-Creative-Writing-SFT", "data/train.parquet"),  # MIT; Claude fiction
+    ("browndw/human-ai-parallel-corpus", "text_data/hape-text_human-chunk-2.parquet"),  # MIT
+    ("browndw/human-ai-parallel-corpus", "text_data/hape-text_gpt-4o-2024-08-06.parquet"),
+    ("browndw/human-ai-parallel-corpus", "text_data/hape-text_gpt-4o-mini-2024-07-18.parquet"),
+    ("textsightai/ai-text-detection-benchmark-2026", "data/ai_generated_2026-09-29.jsonl"),  # CC BY-SA 4.0; test only
+    ("textsightai/ai-text-detection-benchmark-2026", "data/human_wikipedia_pre2022.jsonl"),
+    ("textsightai/ai-text-detection-benchmark-2026", "data/human_pmc_ccby_nonanglophone.jsonl"),
+    ("textsightai/ai-text-detection-benchmark-2026", "data/human_literature_publicdomain.jsonl"),
 ]
 for repo, name in FILES:
     path = hf_hub_download(repo, name, repo_type="dataset", local_dir=os.path.join(OUT, repo.split("/")[1]))

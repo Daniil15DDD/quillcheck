@@ -117,6 +117,70 @@ for df, label in ((sample(fresh(daigt[daigt.label == 0]), 500), "human"), (sampl
     for _, r in df.iterrows():
         add("daigt", r.source, label, r.text, "train_extra")
 
+# --- v2: current (2025-26) models. Appended after everything above, so the earlier splits are unchanged. ---
+_MARKDOWN = re.compile(r"(^|\n)\s*(#|[-*>•]\s|\d+[.)]\s)|\*\*|```|\|")
+
+
+def prose(text) -> bool:
+    """Plain prose only: headings and bullet lists would be a formatting shortcut, not writing style."""
+    return keep(text) and not _MARKDOWN.search(text)
+
+
+def take(df: pd.DataFrame, n: int, source: str, label: str, split: str, group) -> None:
+    df = df[df.text.map(prose) & ~df.text.map(clean).isin(used)]
+    for _, r in sample(df, n).iterrows():
+        add(source, group(r), label, r.text, split)
+
+
+# rasbt/human-vs-ai-50k: its own train/test splits; label 1 = AI; generator per row.
+for split_file, split, n_h, n_a in (("train", "train_extra", 2900, 1500), ("test", "test_new", 300, 300)):
+    rb = pd.read_parquet(D / f"human-vs-ai-50k/data/{split_file}-00000-of-00001.parquet", columns=["text", "label", "generator_model", "source_collection"])
+    take(rb[rb.label == 0], n_h, "rasbt", "human", split, lambda r: r.source_collection)
+    take(rb[rb.label == 1], n_a, "rasbt", "ai", split, lambda r: r.generator_model)
+
+# ELI5 answers from seven 2026 models (human half not distributed): AI only.
+for split_file, split, per_model in (("train", "train_extra", 115), ("test", "test_new", 40)):
+    el = pd.read_json(D / f"eli5-human-vs-ai/{split_file}.jsonl", lines=True)
+    el = el[(el.label == "ai") & el.text.map(prose)]
+    for model, g in el.groupby("model"):
+        take(g, per_model, "eli5", "ai", split, lambda r: r.model)
+
+# Claude fiction (training only), cut into essay-length passages at paragraph breaks.
+claude = pd.read_parquet(D / "RL-Claude-Creative-Writing-SFT/data/train.parquet")
+passages = []
+for story in claude.output:
+    chunk = []
+    for para in (p.strip() for p in story.split("\n\n")):
+        if len(para.split()) < 6:  # titles, dates, salutations
+            continue
+        chunk.append(para)
+        if len(" ".join(chunk).split()) >= 180:
+            passages.append("\n\n".join(chunk))
+            chunk = []
+take(pd.DataFrame({"text": passages}), 600, "claude_fiction", "ai", "train_extra", lambda r: "claude")
+
+# HAP-E: human continuations (fiction, news, blogs, academic, spoken, TV) and GPT-4o continuations of the same texts.
+def trim(text: str, limit: int = 400) -> str:
+    """Cut at the last sentence end within `limit` words. Both sides get the same cut, because
+    GPT-4o's continuations run longer than the human ones and length would otherwise give it away."""
+    words = text.split()
+    if len(words) <= limit:
+        return text
+    cut = " ".join(words[:limit])
+    return cut[: max(cut.rfind(". "), cut.rfind("? "), cut.rfind("! ")) + 1] or cut
+
+
+hape = lambda f: pd.read_parquet(D / f"human-ai-parallel-corpus/text_data/hape-text_{f}.parquet").assign(text=lambda d: d.text.map(trim))  # noqa: E731
+take(hape("human-chunk-2"), 700, "hape", "human", "train_extra", lambda r: r.doc_id.split("_")[0])
+take(hape("gpt-4o-2024-08-06"), 350, "hape", "ai", "train_extra", lambda r: "gpt-4o")
+take(hape("gpt-4o-mini-2024-07-18"), 350, "hape", "ai", "train_extra", lambda r: "gpt-4o-mini")
+
+# textsightai 2026 benchmark (test only): Claude Opus 5, Claude Haiku 4.5, GPT-4.1, gpt-oss, Qwen vs careful human sets.
+for name in ("ai_generated_2026-09-29", "human_wikipedia_pre2022", "human_pmc_ccby_nonanglophone", "human_literature_publicdomain"):
+    ts = pd.read_json(D / f"ai-text-detection-benchmark-2026/data/{name}.jsonl", lines=True)
+    for _, r in ts[ts.text.map(keep)].iterrows():
+        add("textsight", r.source, r.label, r.text, "test_new")
+
 with open(D / "evalset.jsonl", "w") as f:
     for r in rows:
         f.write(json.dumps(r) + "\n")

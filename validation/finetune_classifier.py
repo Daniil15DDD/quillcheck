@@ -5,9 +5,11 @@ held back to pick the best epoch. The top half of the encoder and the head are t
 stays frozen so it fits in 16 GB on Apple Silicon. Both models are then scored on "test_in" and
 "test_ood" with the app's own detector.Classifier.score_document, so the comparison is like for like.
 
-Rule, fixed before the first run: adopt only if, on BOTH test sets, Brier is lower and AUROC is no
-more than 0.01 lower, AND no more of the 16 newer-model passages are missed. If adopted, the model
-is saved to models/quillcheck-classifier/ (git-ignored) and detector.py loads it from there.
+Rule (v2, fixed before the v2 run): adopt only if, on "test_new" (current 2025-26 models, incl. Claude),
+Brier is lower AND fewer AI texts are missed; AND, summed over all three test sets, no more human texts
+are wrongly flagged; AND no more of the 16 newer-model passages are missed. (The v1 rule, Brier/AUROC on
+test_in and test_ood only, rejected v1 on 2026-10-16.) If adopted, the model is saved to
+models/quillcheck-classifier/ (git-ignored) and detector.py loads it from there.
 """
 from __future__ import annotations
 
@@ -29,6 +31,7 @@ sys.path.insert(0, str(ROOT))
 import detector  # noqa: E402
 
 OUT = ROOT / "models" / "quillcheck-classifier"
+TESTS = ("test_in", "test_ood", "test_new")
 SEED, LR = 20261016, 1e-5
 if detector.DEVICE.type == "cuda":  # e.g. RTX 3080 10 GB: full-length texts, two passes
     MAX_LEN, BATCH, ACCUM, EPOCHS, FROZEN_LAYERS = 512, 4, 4, 2, 12
@@ -71,7 +74,7 @@ def score_tests() -> dict[str, np.ndarray]:
     """Score test texts exactly as the app does."""
     model.eval()
     out = {}
-    for split in ("test_in", "test_ood"):
+    for split in TESTS:
         out[split] = np.array([clf.score_document(r["text"], detector.split_spans(r["text"])[0], detailed=False)[0]
                                for r in rows if r["split"] == split])
     return out
@@ -135,22 +138,23 @@ def metrics(p, t):
 results = {"date": date.today().isoformat(), "n_train": len(train), "n_val": len(val), "best_val_loss": best[0],
            "settings": {"max_len": MAX_LEN, "batch": BATCH * ACCUM, "lr": LR, "epochs": EPOCHS, "frozen_layers": FROZEN_LAYERS},
            "sets": {}}
-for split in ("test_in", "test_ood"):
+for split in TESTS:
     sel = [r for r in rows if r["split"] == split]
     t = np.array(y(sel))
     res = {}
     for name, p in (("current", baseline[split]), ("finetuned", tuned[split])):
         res[name] = {"ALL": metrics(p, t)}
-        for src in sorted({r["source"] for r in sel}):
-            idx = np.array([r["source"] == src for r in sel])
+        key = (lambda r: f'{r["source"]}:{r["group"]}') if split == "test_new" else (lambda r: r["source"])  # per model for new sets
+        for src in sorted({key(r) for r in sel}):
+            idx = np.array([key(r) == src for r in sel])
             res[name][src] = metrics(p[idx], t[idx])
     results["sets"][split] = res
 
 S = results["sets"]
-adopt = all(S[s]["finetuned"]["ALL"]["Brier"] < S[s]["current"]["ALL"]["Brier"]
-            and (S[s]["finetuned"]["ALL"]["AUROC"] or 0) >= (S[s]["current"]["ALL"]["AUROC"] or 0) - 0.01
-            for s in ("test_in", "test_ood")) \
-    and S["test_ood"]["finetuned"]["newer_model"]["FN"] <= S["test_ood"]["current"]["newer_model"]["FN"]
+new_c, new_f = S["test_new"]["current"]["ALL"], S["test_new"]["finetuned"]["ALL"]
+adopt = (new_f["Brier"] < new_c["Brier"] and new_f["FN"] < new_c["FN"]
+         and sum(S[s]["finetuned"]["ALL"]["FP"] for s in TESTS) <= sum(S[s]["current"]["ALL"]["FP"] for s in TESTS)
+         and S["test_ood"]["finetuned"]["newer_model"]["FN"] <= S["test_ood"]["current"]["newer_model"]["FN"])
 results["adopted"] = adopt
 json.dump(results, open(HERE / "finetune_results.json", "w"), indent=1)
 if adopt:
@@ -158,7 +162,7 @@ if adopt:
     model.save_pretrained(OUT)
     tok.save_pretrained(OUT)
 
-for s in ("test_in", "test_ood"):
+for s in TESTS:
     print(f"\n== {s}")
     for name in ("current", "finetuned"):
         m = S[s][name]["ALL"]
