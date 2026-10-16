@@ -14,11 +14,11 @@ CAVEAT = (
 
 PASSAGE_THRESHOLD = 0.5  # a paragraph "looks AI-generated" from this classifier score up
 HUMAN_BELOW = 0.3  # the "Leans human-written" band of reading()
-FALLBACK_TOP = 3  # sentences marked when no paragraph looks AI-generated
+FALLBACK_TOP = 3  # most sentences marked when no paragraph looks AI-generated (and never over a quarter)
 HIGHLIGHT_NOTE = (
     "When the whole text is not rated \"Leans human-written\", yellow marks the more machine-like half of the "
-    "sentences inside paragraphs the classifier rates 50%+ likely AI-generated. Otherwise it marks the "
-    f"{FALLBACK_TOP} most machine-like sentences (by Binoculars score) so you can see what stands out most, "
+    "sentences inside paragraphs the classifier rates 50%+ likely AI-generated. Otherwise it marks up to "
+    f"{FALLBACK_TOP} of the most machine-like sentences, never more than a quarter of them (by Binoculars score), so you can see what stands out most, "
     "even in a text that reads as human."
 )
 
@@ -31,10 +31,12 @@ def flag_sentences(result) -> set[int]:
     the lower-Binoculars half of the scored sentences in AI-looking paragraphs is marked (all of
     them when there are three or fewer). Short paragraphs scored alone are much noisier than the
     whole text (a 1% text had 40-word paragraphs at 50-57%), so they are not used below 30%.
-    If that marks nothing, the FALLBACK_TOP lowest-Binoculars sentences are marked instead.
+    If that marks nothing, the lowest-Binoculars sentences are marked instead: FALLBACK_TOP at most,
+    and never more than a quarter of the scored sentences (none in texts of three or fewer).
     """
     scored = sorted((s for s in result.sentences if s.binoculars is not None), key=lambda s: s.binoculars)
-    fallback = {s.index for s in scored[:FALLBACK_TOP]}
+    # At most a quarter of the sentences: in a 4-sentence text, 3 marks covered most of the text.
+    fallback = {s.index for s in scored[:min(FALLBACK_TOP, len(scored) // 4)]}
     if result.classifier is None or round(result.classifier * 100) < HUMAN_BELOW * 100:
         return fallback
     looks_ai = {}

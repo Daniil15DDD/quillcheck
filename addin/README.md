@@ -47,7 +47,7 @@ Run `addin/run_addin.sh` and keep it running, then click **Check text** in Word.
 
 - Marks follow the headline score. Unless the document is rated "Leans human-written" (under 30%),
   paragraphs rated 50%+ are marked, the more machine-like half of their sentences. Otherwise the
-  3 most machine-like sentences are marked, which means they stand out most here, not that they are AI. Short paragraphs are noisy, so a mark is a reason to reread, not a verdict.
+  most machine-like sentences are marked (up to 3, never more than a quarter), which means they stand out most here, not that they are AI. Short paragraphs are noisy, so a mark is a reason to reread, not a verdict.
 - Removing a mark also removes any yellow highlight you had added yourself on that sentence.
 - Sentences with soft line breaks or unusual formatting sometimes can't be located. The panel
   says how many.

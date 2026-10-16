@@ -147,7 +147,7 @@ function scan() {
     $("flagged").hidden = !marked.length;
     let msg = marked.length
       ? `Marked ${marked.length} sentence${marked.length === 1 ? "" : "s"} in yellow.`
-      : "No sentence was long enough to rank. Try a longer text.";
+      : "Too few sentences to pick any out. Longer texts give steadier results.";
     if (missing) msg += ` ${missing} couldn't be located in the document (special formatting or line breaks).`;
     setStatus(msg);
   });

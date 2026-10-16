@@ -174,7 +174,7 @@ def score_panel(pct: int, label: str, severity: str, marked: int, total: int) ->
     chips = "".join(
         f'<span class="qc-chip {sev}{" on" if sev == severity else ""}"><b>{name}</b> {rng}</span>' for sev, name, rng in BANDS
     )
-    marked_line = (f"Reads as human; its {marked} most machine-like sentences are highlighted" if marked and pct < 30
+    marked_line = ((f"Reads as human; its {marked} most machine-like sentences are highlighted" if marked > 1 else "Reads as human; its most machine-like sentence is highlighted") if marked and pct < 30
                    else f"{marked} of {total} sentences highlighted for a reread" if marked
                    else "No sentences highlighted")
     return (
@@ -192,7 +192,7 @@ def top_sentences(result: detector.Result) -> str:
     flags = likelihood.flag_sentences(result)
     marked = sorted((s for s in result.sentences if s.index in flags), key=lambda s: s.binoculars)
     if not marked:
-        return '<p class="qc-empty">No sentence was long enough to rank. Try a longer text.</p>'
+        return '<p class="qc-empty">Too few sentences to pick any out. Longer texts give steadier results.</p>'
     rows = "".join(
         f'<div class="qc-row"><span class="qc-dots" title="Rank {i + 1} of {len(marked)} marked">{"<i></i>" * max(1, 3 - (3 * i) // len(marked))}</span>'
         f'<span>{html.escape(s.text)}</span></div>' for i, s in enumerate(marked)
