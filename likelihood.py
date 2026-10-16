@@ -13,26 +13,30 @@ CAVEAT = (
 
 
 PASSAGE_THRESHOLD = 0.5  # a paragraph "looks AI-generated" from this classifier score up
-HUMAN_BELOW = 0.3  # the "Leans human-written" band of reading(); nothing is marked there
+HUMAN_BELOW = 0.3  # the "Leans human-written" band of reading()
+FALLBACK_TOP = 3  # sentences marked when no paragraph looks AI-generated
 HIGHLIGHT_NOTE = (
-    "Yellow marks sentences only when the whole text is not rated \"Leans human-written\", and then only inside "
-    "paragraphs the classifier rates 50%+ likely AI-generated. Within those it marks the more machine-like half, "
-    "by Binoculars score."
+    "When the whole text is not rated \"Leans human-written\", yellow marks the more machine-like half of the "
+    "sentences inside paragraphs the classifier rates 50%+ likely AI-generated. Otherwise it marks the "
+    f"{FALLBACK_TOP} most machine-like sentences (by Binoculars score) so you can see what stands out most, "
+    "even in a text that reads as human."
 )
 
 
 def flag_sentences(result) -> set[int]:
-    """Indexes of sentences to highlight, so marks never contradict the headline reading.
+    """Indexes of sentences to highlight.
 
-    Nothing is marked when the whole-text score is in the "Leans human-written" band: short
-    paragraphs scored alone are much noisier than the whole text (a 1% text had 40-word
-    paragraphs at 50-57%). Otherwise a paragraph counts as AI-looking from its own classifier
-    score, or, when it is too short to have one, from the whole-text score. Among scored
-    sentences in AI-looking paragraphs, the lower-Binoculars half is marked (all of them when
-    there are three or fewer).
+    When the whole-text score is at least "Unclear", a paragraph counts as AI-looking from its
+    own classifier score, or, when it is too short to have one, from the whole-text score, and
+    the lower-Binoculars half of the scored sentences in AI-looking paragraphs is marked (all of
+    them when there are three or fewer). Short paragraphs scored alone are much noisier than the
+    whole text (a 1% text had 40-word paragraphs at 50-57%), so they are not used below 30%.
+    If that marks nothing, the FALLBACK_TOP lowest-Binoculars sentences are marked instead.
     """
+    scored = sorted((s for s in result.sentences if s.binoculars is not None), key=lambda s: s.binoculars)
+    fallback = {s.index for s in scored[:FALLBACK_TOP]}
     if result.classifier is None or round(result.classifier * 100) < HUMAN_BELOW * 100:
-        return set()
+        return fallback
     looks_ai = {}
     for p in result.paragraphs:
         score = p.classifier if p.classifier is not None else result.classifier
@@ -44,7 +48,7 @@ def flag_sentences(result) -> set[int]:
     ]
     if len(candidates) > 3:
         candidates = sorted(candidates, key=lambda s: s.binoculars)[: (len(candidates) + 1) // 2]
-    return {s.index for s in candidates}
+    return {s.index for s in candidates} or fallback
 
 
 def reading(classifier: float | None) -> tuple[int, str, str] | None:

@@ -45,7 +45,7 @@
 <td width="33%" valign="top">
 
 ### 🔍 Check
-An overall AI-likelihood estimate, yellow marks on the sentences to reread in paragraphs that look AI-generated, and a per-paragraph breakdown. A text rated "Leans human-written" gets no marks, so the marks never contradict the score. Paste text or upload a `.docx`/`.txt`.
+An overall AI-likelihood estimate, yellow marks on the sentences to reread in paragraphs that look AI-generated, and a per-paragraph breakdown. A text rated "Leans human-written" still shows its 3 most machine-like sentences, so you can see what stands out most. Paste text or upload a `.docx`/`.txt`.
 
 </td>
 <td width="33%" valign="top">
@@ -145,7 +145,7 @@ It's useful as a second opinion, not as proof. On held-out tests, the classifier
 <details>
 <summary><strong>Which sentences get highlighted?</strong></summary>
 
-Only sentences in paragraphs the classifier rates 50%+ likely AI-generated, and within those the more machine-like half. If the whole text is rated "Leans human-written" (under 30%), nothing is marked. Short paragraphs are noisier than whole texts, so a yellow sentence is a reason to reread it, not a verdict.
+Only sentences in paragraphs the classifier rates 50%+ likely AI-generated, and within those the more machine-like half. If the whole text is rated "Leans human-written" (under 30%), or no paragraph reaches 50%, the 3 most machine-like sentences are marked instead. That only means they stand out most in this text, not that they are AI. Short paragraphs are noisier than whole texts, so a yellow sentence is a reason to reread it, not a verdict.
 </details>
 
 <details>
