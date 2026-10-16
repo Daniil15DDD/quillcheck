@@ -14,3 +14,6 @@ calibration.json
 
 # macOS
 .DS_Store
+
+# Downloaded public datasets for evaluation (not redistributed)
+validation/data/

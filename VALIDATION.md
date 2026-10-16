@@ -198,3 +198,30 @@ These passages have no human counterpart, so no false-positive rate exists for t
 - Some punctuation follows US conventions, e.g. a full stop inside closing quotation marks.
 - A 1.5B model gives modest editing quality. It is an aid for clarity and proofreading, not a replacement for your own revision.
 - Not tested: real student writing, non-native English writing, texts with heavy referencing, tables, bullet lists, headings, and texts in other languages.
+
+## 9. Score combiner experiment (2026-10-16): not adopted
+
+**Question.** Can a small model on top of the two detectors (logistic regression on the classifier's logit, the Binoculars score and log word count) give a more trustworthy percentage than the classifier alone?
+
+**Data** (`validation/build_eval_set.py`, fixed seed; texts are downloaded locally and not committed):
+
+- Train and same-kind test (50/50 split): MAGE (Apache-2.0) human texts and texts from its stronger generators, 400; HC3 medicine and wiki_csai, split by question, 160; DAIGT student essays (mirror with no stated licence, used locally for evaluation only), 300.
+- New-kind test, never trained on: MAGE GPT-4 set (100 human, 100 AI), GPT-4 paraphrases (100 AI), and the 16 newer-model business passages from section 7.
+- The desklib classifier was trained on RAID, so RAID was deliberately not used.
+
+**Rule fixed before the first run:** adopt only if the Brier score is lower on both test sets and AUROC is no more than 0.01 lower on either.
+
+**Results** (`validation/combiner_results.json`; FP = human texts wrongly flagged at 50%, FN = AI texts missed):
+
+| Test set | Scorer | AUROC | Brier | FP | FN |
+|---|---|---|---|---|---|
+| Same kind (430) | Classifier as-is | 0.985 | 0.054 | 23 / 215 | 6 / 215 |
+| Same kind (430) | Combiner | 0.988 | 0.033 | 6 / 215 | 12 / 215 |
+| New kind (316) | Classifier as-is | 0.965 | 0.074 | 21 / 100 | 8 / 216 |
+| New kind (316) | Combiner | 0.961 | 0.084 | 10 / 100 | 29 / 216 |
+
+On the newer-model passages the combiner missed 8 of 16 (classifier: 3), and on GPT-4 paraphrases 16 of 100 (classifier: 4).
+
+**Decision: not adopted.** It roughly quartered false positives on familiar text, but on new kinds of AI text it mostly learned to answer "human" more often and missed far more. The app keeps the classifier score. A recalibrated classifier alone (logit only) showed the same trade-off.
+
+**Also learned:** the classifier wrongly flagged 21 of 100 human texts in the MAGE GPT-4 set (news, film reviews, abstracts, dialogue summaries), in line with section 7.
